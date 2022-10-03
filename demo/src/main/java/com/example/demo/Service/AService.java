@@ -1,13 +1,14 @@
 package com.example.demo.Service;
 
+import com.example.demo.Model.DTO.MetaPostDTO;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AService {
 
     // 홈 화면
-    public void method1(){
-
+    public MetaPostDTO method1(){
+        return null;
     }
     // 게시글 선택시
     public void method2(){

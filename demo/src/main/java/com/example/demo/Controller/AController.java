@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Model.DTO.InfoDTO;
+import com.example.demo.Model.DTO.MetaPostDTO;
 import com.example.demo.Service.AService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,8 +17,8 @@ public class AController {
 
     // 홈 화면
     @GetMapping("/")
-    public void GetMainPage(){
-        service.method1();
+    public MetaPostDTO GetMainPage(){
+        return service.method1();
     }
 
     // 게시글 선택시
