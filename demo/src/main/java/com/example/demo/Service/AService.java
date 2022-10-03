@@ -15,11 +15,11 @@ public class AService {
         return getMainBean.exec();
     }
     // 게시글 선택시
-    public void method2(){
+    public void GetPost(){
 
     }
     // 게시글 작성
-    public void method3(){
+    public void MakePost(){
 
     }
     // 개인 정보 페이지

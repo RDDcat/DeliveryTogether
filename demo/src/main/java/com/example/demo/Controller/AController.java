@@ -24,13 +24,13 @@ public class AController {
     // 게시글 선택시
     @GetMapping("/post/{postId}")
     public void GetPost(@PathVariable long postId){
-        service.method2();
+        service.GetPost();
     }
 
     // 게시글 작성
     @GetMapping("/make")
     public void MakePost(){
-        service.method3();
+        service.MakePost();
     }
 
     // 개인 정보 페이지
