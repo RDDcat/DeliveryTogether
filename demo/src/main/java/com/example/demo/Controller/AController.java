@@ -18,7 +18,7 @@ public class AController {
     // 홈 화면
     @GetMapping("/")
     public MetaPostDTO GetMainPage(){
-        return service.method1();
+        return service.GetMainPage();
     }
 
     // 게시글 선택시

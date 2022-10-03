@@ -1,14 +1,18 @@
 package com.example.demo.Service;
 
+import com.example.demo.Bean.GetMainBean;
 import com.example.demo.Model.DTO.MetaPostDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AService {
+    @Autowired
+    GetMainBean getMainBean;
 
     // 홈 화면
-    public MetaPostDTO method1(){
-        return null;
+    public MetaPostDTO GetMainPage(){
+        return getMainBean.exec();
     }
     // 게시글 선택시
     public void method2(){
