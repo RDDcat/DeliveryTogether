@@ -2,7 +2,9 @@ package com.example.demo.Bean.Small;
 
 import com.example.demo.Model.DAO.PostDAO;
 import com.example.demo.Model.DTO.MetaPostDTO;
+import org.springframework.stereotype.Component;
 
+@Component
 public class GetMetaPostDTOFromPostDAOs {
     int count = 10;
 
