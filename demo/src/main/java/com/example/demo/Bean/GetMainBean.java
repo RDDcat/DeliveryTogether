@@ -6,8 +6,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class GetMainBean {
     public MetaPostDTO exec(){
-        MetaPostDTO MetaPostDTO = new MetaPostDTO();
+        MetaPostDTO metaPostDTO = new MetaPostDTO();
 
-        return MetaPostDTO;
+        // 저장소에서 슥삭쇽
+
+
+        return metaPostDTO;
     }
 }
