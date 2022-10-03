@@ -17,7 +17,7 @@ public class AController {
 
     // 홈 화면
     @GetMapping("/")
-    public MetaPostDTO GetMainPage(){
+    public MetaPostDTO[] GetMainPage(){
         return service.GetMainPage();
     }
 

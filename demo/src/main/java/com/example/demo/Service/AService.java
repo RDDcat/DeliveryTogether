@@ -11,7 +11,7 @@ public class AService {
     GetMainBean getMainBean;
 
     // 홈 화면
-    public MetaPostDTO GetMainPage(){
+    public MetaPostDTO[] GetMainPage(){
         return getMainBean.exec();
     }
     // 게시글 선택시
