@@ -22,7 +22,7 @@ public class AController {
 
     // 게시글 선택시
     @GetMapping("/post/{postId}")
-    public void GetPostInfo(@PathVariable long postId){
+    public void GetPost(@PathVariable long postId){
         service.method2();
     }
 
