@@ -2,10 +2,7 @@ package com.example.demo.Model.DAO;
 
 import com.example.demo.Model.DTO.MetaPostDTO;
 import com.example.demo.Model.DTO.PostDTO;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,6 +12,7 @@ import javax.persistence.Id;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class PostDAO {
     @Id
     private Long postId;

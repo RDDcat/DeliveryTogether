@@ -13,6 +13,9 @@ public class GetMetaPostDTOFromPostDAOs {
 
         // 변환
         for(int i=0; i<count; i++){
+            if(postDAOS[i] == null){
+                return metaPostDTOs;
+            }
             metaPostDTOs[i] = postDAOS[i].toMetaPostDTO();
         }
 

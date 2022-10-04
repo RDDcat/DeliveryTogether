@@ -13,11 +13,18 @@ public class ARepository {
 
     // 저장
     public void save(PostDAO post){
+        // 저장
         store.put(post.getPostId(), post);
+
+        // 로그
+        printStore();
     }
 
     // id로 조회
     public PostDAO loadById(Long id){
+        // 로그
+        printStore();
+
         return store.get(id);
     }
 
@@ -25,6 +32,9 @@ public class ARepository {
     public PostDAO[] load10(){
         PostDAO[] postDAOS = new PostDAO[10];
         int count = 0;
+
+        // 로그
+        printStore();
 
         for (Long key : store.keySet()) {
             postDAOS[count] = store.get(key);
@@ -34,6 +44,13 @@ public class ARepository {
         }
 
         return postDAOS;
+    }
+
+    public void printStore(){
+        for (Long key : store.keySet()) {
+            System.out.println("키 : " +key);
+            System.out.println("데이터 : " + store.get(key).toString());
+        }
     }
 
 }
