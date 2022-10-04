@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.Model.DAO.PostDAO;
 import com.example.demo.Model.DTO.InfoDTO;
 import com.example.demo.Model.DTO.MetaPostDTO;
 import com.example.demo.Service.AService;
@@ -29,8 +30,16 @@ public class AController {
 
     // 게시글 작성
     @GetMapping("/make")
-    public void MakePost(){
-        service.MakePost();
+    public void MakePost(String title, String limitMinute, String ownerName, String storeUrl, String describe){
+        PostDAO postDAO = PostDAO.builder()
+                .title(title)
+                .limitMinute(limitMinute)
+                .ownerName(ownerName)
+                .storeUrl(storeUrl)
+                .describe(describe)
+                .build();
+
+        service.MakePost(postDAO);
     }
 
     // 개인 정보 페이지

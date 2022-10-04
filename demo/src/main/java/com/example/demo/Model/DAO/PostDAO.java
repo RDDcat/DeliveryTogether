@@ -2,6 +2,8 @@ package com.example.demo.Model.DAO;
 
 import com.example.demo.Model.DTO.MetaPostDTO;
 import com.example.demo.Model.DTO.PostDTO;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.Id;
 
 @Data
 @Entity
+@Builder
 public class PostDAO {
     @Id
     private Long postId;
@@ -17,7 +20,12 @@ public class PostDAO {
     String ownerName;
     String storeUrl;
     String describe;
+    // 이거 타임스탬프 찍어야함
     String currentDate;
+
+    public PostDAO() {
+
+    }
 
     public MetaPostDTO toMetaPostDTO(){
         MetaPostDTO metaPostDTO = new MetaPostDTO();

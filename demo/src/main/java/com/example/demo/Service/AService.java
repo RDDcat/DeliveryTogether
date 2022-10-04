@@ -2,6 +2,8 @@ package com.example.demo.Service;
 
 import com.example.demo.Bean.GetMainBean;
 import com.example.demo.Bean.GetPostBean;
+import com.example.demo.Bean.MakePostBean;
+import com.example.demo.Model.DAO.PostDAO;
 import com.example.demo.Model.DTO.MetaPostDTO;
 import com.example.demo.Model.DTO.PostDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,8 @@ public class AService {
     GetMainBean getMainBean;
     @Autowired
     GetPostBean getPostBean;
+    @Autowired
+    MakePostBean makePostBean;
 
     // 홈 화면
     public MetaPostDTO[] GetMainPage(){
@@ -25,8 +29,8 @@ public class AService {
     }
 
     // 게시글 작성
-    public void MakePost(){
-
+    public void MakePost(PostDAO postDAO){
+        makePostBean.exec(postDAO);
     }
 
     // 개인 정보 페이지
