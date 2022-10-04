@@ -1,6 +1,7 @@
 package com.example.demo.Model.DAO;
 
 import com.example.demo.Model.DTO.MetaPostDTO;
+import com.example.demo.Model.DTO.PostDTO;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -27,6 +28,19 @@ public class PostDAO {
         metaPostDTO.setOwnerName(ownerName);
         metaPostDTO.setDescribe(describe);
         return metaPostDTO;
+    }
+
+    public PostDTO toPostDTO(){
+        PostDTO postDTO = new PostDTO();
+
+        postDTO.setPostId(postId);
+        postDTO.setTitle(title);
+        postDTO.setLimitMinute(limitMinute);
+        postDTO.setOwnerName(ownerName);
+        postDTO.setStoreUrl(storeUrl);
+        postDTO.setDescribe(describe);
+        postDTO.setCurrentDate(currentDate);
+        return postDTO;
     }
 
 }

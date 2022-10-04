@@ -24,7 +24,7 @@ public class AController {
     // 게시글 선택시
     @GetMapping("/post/{postId}")
     public void GetPost(@PathVariable long postId){
-        service.GetPost();
+        service.GetPost(postId);
     }
 
     // 게시글 작성

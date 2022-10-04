@@ -5,6 +5,7 @@ import lombok.Data;
 // 게시글 DTO
 @Data
 public class PostDTO {
+    long postId;
     String title;
     String limitMinute;
     String ownerName;
