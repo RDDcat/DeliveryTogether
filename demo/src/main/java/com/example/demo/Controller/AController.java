@@ -28,8 +28,8 @@ public class AController {
     }
 
     // 게시글 작성
-    @GetMapping("/make")
-    public void MakePost(String title, String describe, String storeUrl, String chatUrl,  String limitMinute, long userId){
+    @GetMapping("/create")
+    public void CreatePost(String title, String describe, String storeUrl, String chatUrl,  String limitMinute, long userId){
         PostDAO postDAO = PostDAO.builder()
                 .title(title)
                 .describe(describe)
@@ -38,7 +38,7 @@ public class AController {
                 .limitMinute(limitMinute)
                 .build();
 
-        service.MakePost(postDAO);
+        service.CreatePost(postDAO);
     }
 
     // 개인 정보 페이지

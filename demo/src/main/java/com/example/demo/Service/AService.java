@@ -3,7 +3,7 @@ package com.example.demo.Service;
 import com.example.demo.Bean.GetMainBean;
 import com.example.demo.Bean.GetPostBean;
 import com.example.demo.Bean.GetUserInfoBean;
-import com.example.demo.Bean.MakePostBean;
+import com.example.demo.Bean.CreatePostBean;
 import com.example.demo.Model.DAO.PostDAO;
 import com.example.demo.Model.DTO.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ public class AService {
     @Autowired
     GetPostBean getPostBean;
     @Autowired
-    MakePostBean makePostBean;
+    CreatePostBean createPostBean;
     @Autowired
     GetUserInfoBean getUserInfoBean;
 
@@ -31,8 +31,8 @@ public class AService {
     }
 
     // 게시글 작성
-    public void MakePost(PostDAO postDAO){
-        makePostBean.exec(postDAO);
+    public void CreatePost(PostDAO postDAO){
+        createPostBean.exec(postDAO);
     }
 
     // 개인 정보 페이지
