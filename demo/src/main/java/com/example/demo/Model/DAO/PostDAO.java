@@ -3,8 +3,11 @@ package com.example.demo.Model.DAO;
 import com.example.demo.Model.DTO.MetaPostDTO;
 import com.example.demo.Model.DTO.PostDTO;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,9 +30,11 @@ public class PostDAO {
     private String chat_url;
 
     // 이거 타임스탬프 찍어야함
-    private String created_at;
+    @CreatedDate
+    private LocalDateTime created_at;
 
-    private String updated_at;
+    @LastModifiedDate
+    private LocalDateTime updated_at;
 
     private String limitMinute;
 
