@@ -22,7 +22,7 @@ public class PostDAO {
     @Id
     @GeneratedValue
     @Column(name = "post_id")
-    private Long Id;
+    private Long postId;
     private String title;
     private String describe;
     private String storeUrl;
@@ -42,14 +42,14 @@ public class PostDAO {
     @JoinColumn(name = "user_id")
     private UserDAO userDAO;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "postDAO")
     List<PostTagDAO> postTagDAOS = new ArrayList<>();
 
 
     public MetaPostDTO toMetaPostDTO(){
         MetaPostDTO metaPostDTO = new MetaPostDTO();
 
-        metaPostDTO.setPostId(Id);
+        metaPostDTO.setPostId(postId);
         metaPostDTO.setTitle(title);
         metaPostDTO.setLimitMinute(limitMinute);
         metaPostDTO.setDescribe(describe);
@@ -59,7 +59,7 @@ public class PostDAO {
     public PostDTO toPostDTO(){
         PostDTO postDTO = new PostDTO();
 
-        postDTO.setPostId(Id);
+        postDTO.setPostId(postId);
         postDTO.setTitle(title);
         postDTO.setLimitMinute(limitMinute);
         postDTO.setStoreUrl(storeUrl);

@@ -16,7 +16,7 @@ public class UserTagDAO {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long userTagId;
 
     private String name;
 

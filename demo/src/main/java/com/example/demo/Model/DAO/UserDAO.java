@@ -19,12 +19,12 @@ public class UserDAO {
     @Id
     @GeneratedValue
     @Column(name = "user_id")
-    private Long id;
+    private Long userId;
     private String name;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "userDAO")
     List<UserTagDAO> userTagDAOS = new ArrayList<>();
 
-    @OneToMany(mappedBy = "owner")
+    @OneToMany(mappedBy = "userDAO")
     List<PostDAO> postDAOS = new ArrayList<>();
 }

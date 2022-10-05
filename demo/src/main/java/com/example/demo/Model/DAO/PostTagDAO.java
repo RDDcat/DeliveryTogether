@@ -14,7 +14,7 @@ public class PostTagDAO {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long postTagId;
 
     private String name;
 
