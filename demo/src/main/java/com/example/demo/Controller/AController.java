@@ -32,13 +32,13 @@ public class AController {
 
     // 게시글 작성
     @GetMapping("/make")
-    public void MakePost(String title, String limitMinute, String ownerName, String storeUrl, String describe){
+    public void MakePost(String title, String describe, String storeUrl, String chatUrl,  String limitMinute, long userId){
         PostDAO postDAO = PostDAO.builder()
                 .title(title)
-                .limitMinute(limitMinute)
-                .ownerName(ownerName)
-                .storeUrl(storeUrl)
                 .describe(describe)
+                .storeUrl(storeUrl)
+                .chatUrl(chatUrl)
+                .limitMinute(limitMinute)
                 .build();
 
         service.MakePost(postDAO);

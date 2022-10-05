@@ -26,8 +26,8 @@ public class PostDAO {
     private String title;
     private String describe;
     private String storeUrl;
-
     private String chatUrl;
+    private String limitMinute;
 
     // 이거 타임스탬프 찍어야함
     @CreatedDate
@@ -36,7 +36,6 @@ public class PostDAO {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 
-    private String limitMinute;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
