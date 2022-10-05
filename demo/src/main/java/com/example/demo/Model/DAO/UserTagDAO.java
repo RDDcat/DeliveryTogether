@@ -22,7 +22,7 @@ public class UserTagDAO {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private UserDAO user;
+    private UserDAO userDAO;
 
 
 }

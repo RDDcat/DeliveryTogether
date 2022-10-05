@@ -25,25 +25,25 @@ public class PostDAO {
     private Long Id;
     private String title;
     private String describe;
-    private String store_url;
+    private String storeUrl;
 
-    private String chat_url;
+    private String chatUrl;
 
     // 이거 타임스탬프 찍어야함
     @CreatedDate
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
     @LastModifiedDate
-    private LocalDateTime updated_at;
+    private LocalDateTime updatedAt;
 
     private String limitMinute;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private UserDAO owner;
+    private UserDAO userDAO;
 
     @OneToMany(mappedBy = "post")
-    List<PostTagDAO> posttags = new ArrayList<>();
+    List<PostTagDAO> postTagDAOS = new ArrayList<>();
 
 
     public MetaPostDTO toMetaPostDTO(){
@@ -62,9 +62,9 @@ public class PostDAO {
         postDTO.setPostId(Id);
         postDTO.setTitle(title);
         postDTO.setLimitMinute(limitMinute);
-        postDTO.setStoreUrl(store_url);
+        postDTO.setStoreUrl(storeUrl);
         postDTO.setDescribe(describe);
-        postDTO.setCurrentDate(created_at);
+        postDTO.setCurrentAt(createdAt);
         return postDTO;
     }
 

@@ -20,7 +20,7 @@ public class PostTagDAO {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")
-    private PostDAO post;
+    private PostDAO postDAO;
 
 
 }

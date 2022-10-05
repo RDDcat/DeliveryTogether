@@ -23,8 +23,8 @@ public class UserDAO {
     private String name;
 
     @OneToMany(mappedBy = "user")
-    List<UserTagDAO> userTags = new ArrayList<>();
+    List<UserTagDAO> userTagDAOS = new ArrayList<>();
 
     @OneToMany(mappedBy = "owner")
-    List<PostDAO> posts = new ArrayList<>();
+    List<PostDAO> postDAOS = new ArrayList<>();
 }
