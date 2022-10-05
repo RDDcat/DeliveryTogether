@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Model.DAO.PostDAO;
+import com.example.demo.Model.DTO.MainPageDTO;
 import com.example.demo.Model.DTO.MetaPostDTO;
 import com.example.demo.Model.DTO.PostDTO;
 import com.example.demo.Model.DTO.UserDTO;
@@ -19,7 +20,7 @@ public class AController {
 
     // 홈 화면
     @GetMapping("/")
-    public MetaPostDTO[] GetMainPage(){
+    public MainPageDTO GetMainPage(){
         return service.GetMainPage();
     }
 

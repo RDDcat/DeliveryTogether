@@ -4,6 +4,7 @@ import com.example.demo.Bean.GetMainBean;
 import com.example.demo.Bean.GetPostBean;
 import com.example.demo.Bean.MakePostBean;
 import com.example.demo.Model.DAO.PostDAO;
+import com.example.demo.Model.DTO.MainPageDTO;
 import com.example.demo.Model.DTO.MetaPostDTO;
 import com.example.demo.Model.DTO.PostDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class AService {
     MakePostBean makePostBean;
 
     // 홈 화면
-    public MetaPostDTO[] GetMainPage(){
+    public MainPageDTO GetMainPage(){
         return getMainBean.exec();
     }
 
