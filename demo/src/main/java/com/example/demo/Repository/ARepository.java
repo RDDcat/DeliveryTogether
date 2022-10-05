@@ -1,6 +1,7 @@
 package com.example.demo.Repository;
 
 import com.example.demo.Model.DAO.PostDAO;
+import com.example.demo.Model.DAO.UserDAO;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -10,6 +11,7 @@ import java.util.Map;
 public class ARepository {
 
     private static Map<Long, PostDAO> store = new HashMap<>();
+    private static Map<Long, UserDAO> userStore = new HashMap<>();
 
     // 저장
     public void save(PostDAO post){
@@ -44,6 +46,10 @@ public class ARepository {
         }
 
         return postDAOS;
+    }
+
+    public UserDAO loadUserById(long userId){
+        return userStore.get(userId);
     }
 
     public void printStore(){

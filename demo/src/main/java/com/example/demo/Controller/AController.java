@@ -46,9 +46,9 @@ public class AController {
 
     // 개인 정보 페이지
     // 카톡 로그인 연동
-    @GetMapping("/info")
-    public UserDTO GetInfo(){
-        return null;
+    @GetMapping("/user/{userId}")
+    public UserDTO GetUserDTO(@PathVariable Long userId){
+        return service.GetUserDTO(userId);
     }
 
 }

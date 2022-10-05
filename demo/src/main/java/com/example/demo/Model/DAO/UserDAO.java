@@ -1,5 +1,6 @@
 package com.example.demo.Model.DAO;
 
+import com.example.demo.Model.DTO.UserDTO;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,4 +28,13 @@ public class UserDAO {
 
     @OneToMany(mappedBy = "userDAO")
     List<PostDAO> postDAOS = new ArrayList<>();
+
+    public UserDTO toUserDTO(){
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUserId(userId);
+        userDTO.setName(name);
+
+        return userDTO;
+    }
+
 }

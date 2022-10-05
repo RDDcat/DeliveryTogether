@@ -1,7 +1,11 @@
 package com.example.demo.Model.DTO;
 
 
-public class UserDTO {
+import lombok.Data;
 
+@Data
+public class UserDTO {
+    private Long userId;
+    private String name;
 
 }
