@@ -4,34 +4,49 @@ import com.example.demo.Model.DTO.MetaPostDTO;
 import com.example.demo.Model.DTO.PostDTO;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
-@Data
 @Entity
+@Table(name = "post")
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
 public class PostDAO {
     @Id
-    private Long postId;
-    String title;
-    String limitMinute;
-    String ownerName;
-    String storeUrl;
-    String describe;
+    @GeneratedValue
+    @Column(name = "post_id")
+    private Long Id;
+    private String title;
+    private String describe;
+    private String store_url;
+
+    private String chat_url;
+
     // 이거 타임스탬프 찍어야함
-    String currentDate;
+    private String created_at;
+
+    private String updated_at;
+
+    private String limitMinute;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserDAO owner;
+
+    @OneToMany(mappedBy = "post")
+    List<PostTagDAO> posttags = new ArrayList<>();
 
 
     public MetaPostDTO toMetaPostDTO(){
         MetaPostDTO metaPostDTO = new MetaPostDTO();
 
-        metaPostDTO.setPostId(postId);
+        metaPostDTO.setPostId(Id);
         metaPostDTO.setTitle(title);
         metaPostDTO.setLimitMinute(limitMinute);
-        metaPostDTO.setOwnerName(ownerName);
         metaPostDTO.setDescribe(describe);
         return metaPostDTO;
     }
@@ -39,13 +54,12 @@ public class PostDAO {
     public PostDTO toPostDTO(){
         PostDTO postDTO = new PostDTO();
 
-        postDTO.setPostId(postId);
+        postDTO.setPostId(Id);
         postDTO.setTitle(title);
         postDTO.setLimitMinute(limitMinute);
-        postDTO.setOwnerName(ownerName);
-        postDTO.setStoreUrl(storeUrl);
+        postDTO.setStoreUrl(store_url);
         postDTO.setDescribe(describe);
-        postDTO.setCurrentDate(currentDate);
+        postDTO.setCurrentDate(created_at);
         return postDTO;
     }
 
