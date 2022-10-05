@@ -1,8 +1,9 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Model.DAO.PostDAO;
-import com.example.demo.Model.DTO.InfoDTO;
 import com.example.demo.Model.DTO.MetaPostDTO;
+import com.example.demo.Model.DTO.PostDTO;
+import com.example.demo.Model.DTO.UserDTO;
 import com.example.demo.Service.AService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,8 +25,8 @@ public class AController {
 
     // 게시글 선택시
     @GetMapping("/post/{postId}")
-    public void GetPost(@PathVariable long postId){
-        service.GetPost(postId);
+    public PostDTO GetPost(@PathVariable long postId){
+        return service.GetPost(postId);
     }
 
     // 게시글 작성
@@ -45,7 +46,7 @@ public class AController {
     // 개인 정보 페이지
     // 카톡 로그인 연동
     @GetMapping("/info")
-    public InfoDTO GetInfo(){
+    public UserDTO GetInfo(){
         return null;
     }
 
