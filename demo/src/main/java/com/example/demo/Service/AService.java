@@ -18,7 +18,7 @@ public class AService {
     @Autowired
     MakePostBean makePostBean;
     @Autowired
-    GetUserInfoBean getUserBean;
+    GetUserInfoBean getUserInfoBean;
 
     // 홈 화면
     public MainPageDTO GetMainPage(){
@@ -38,7 +38,7 @@ public class AService {
     // 개인 정보 페이지
     // 카톡 로그인 연동
     public UserInfoDTO GetUserInfo(Long userId){
-        return getUserBean.exec(userId);
+        return getUserInfoBean.exec(userId);
     }
 
 }
