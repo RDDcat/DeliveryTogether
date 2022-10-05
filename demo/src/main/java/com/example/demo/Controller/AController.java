@@ -1,10 +1,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Model.DAO.PostDAO;
-import com.example.demo.Model.DTO.MainPageDTO;
-import com.example.demo.Model.DTO.MetaPostDTO;
-import com.example.demo.Model.DTO.PostDTO;
-import com.example.demo.Model.DTO.UserDTO;
+import com.example.demo.Model.DTO.*;
 import com.example.demo.Service.AService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -47,8 +44,8 @@ public class AController {
     // 개인 정보 페이지
     // 카톡 로그인 연동
     @GetMapping("/user/{userId}")
-    public UserDTO GetUserDTO(@PathVariable Long userId){
-        return service.GetUserDTO(userId);
+    public UserInfoDTO GetUserInfo(@PathVariable Long userId){
+        return service.GetUserInfo(userId);
     }
 
 }
