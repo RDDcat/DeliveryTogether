@@ -29,6 +29,10 @@ public class UserDAO {
     @OneToMany(mappedBy = "userDAO")
     List<PostDAO> postDAOS = new ArrayList<>();
 
+    public void changeName(String name){
+        this.name = name;
+    }
+
     public UserDTO toUserDTO(){
         UserDTO userDTO = new UserDTO();
         userDTO.setUserId(userId);
