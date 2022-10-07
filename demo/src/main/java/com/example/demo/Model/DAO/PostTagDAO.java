@@ -3,12 +3,14 @@ package com.example.demo.Model.DAO;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "posttag")
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class PostTagDAO {
 
@@ -21,6 +23,5 @@ public class PostTagDAO {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")
     private PostDAO postDAO;
-
 
 }
