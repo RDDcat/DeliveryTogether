@@ -24,4 +24,8 @@ public class PostTagDAO {
     @JoinColumn(name = "post_id")
     private PostDAO postDAO;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tag_id")
+    private TagDAO tagDAO;
+
 }

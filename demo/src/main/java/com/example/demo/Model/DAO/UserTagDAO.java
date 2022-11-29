@@ -22,5 +22,9 @@ public class UserTagDAO {
     @JoinColumn(name = "user_id")
     private UserDAO userDAO;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tag_id")
+    private TagDAO tagDAO;
+
 
 }
