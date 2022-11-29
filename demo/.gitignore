@@ -126,3 +126,4 @@ fabric.properties
 
 ### VS Code ###
 .vscode/
+/src/main/resources/application-oauth.yml
