@@ -21,6 +21,16 @@ public class UserDAO {
     private Long userId;
     private String name;
 
+    private String email;
+
+    private String token;
+
+    private String refreshToken;
+
+    @Enumerated
+    private Role role;
+
+
     @OneToMany(mappedBy = "userDAO")
     List<UserTagDAO> userTagDAOS = new ArrayList<>();
 
