@@ -27,7 +27,7 @@ public class UserDAO {
 
     private String refreshToken;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Role role;
 
 
