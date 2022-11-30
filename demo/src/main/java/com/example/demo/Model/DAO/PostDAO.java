@@ -27,8 +27,12 @@ public class PostDAO {
     private String title;
     private String describe;
     private String storeUrl;
+
     private String chatUrl;
     private String limitMinute;
+
+    // 참여 인원
+    private int count;
 
     // 이거 타임스탬프 찍어야함
     @CreatedDate
@@ -65,6 +69,7 @@ public class PostDAO {
         postDTO.setStoreUrl(storeUrl);
         postDTO.setDescribe(describe);
         postDTO.setCurrentAt(createdAt);
+        postDTO.setCount(count);
         return postDTO;
     }
 
