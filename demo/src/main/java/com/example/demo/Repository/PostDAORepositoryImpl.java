@@ -1,7 +1,7 @@
 package com.example.demo.Repository;
 
 import com.example.demo.Model.DTO.PostTagSearchDTO;
-import com.example.demo.Model.DTO.QPostSearchDTO;
+import com.example.demo.Model.DTO.QPostTagSearchDTO;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -21,10 +21,10 @@ public class PostDAORepositoryImpl implements PostDAORepositoryCustom {
     @Override
     public Page<PostTagSearchDTO> searchPost(String tagname, Pageable pageable) {
     List<PostTagSearchDTO> results = queryFactory
-                .select(new QPostSearchDTO(
+                .select(new QPostTagSearchDTO(
                         postDAO.title,
-                        postDAO.count
-                ))
+                        postDAO.count)
+                )
                 .from(postDAO)
                 .join(postDAO.postTagDAOS, postTagDAO)
                 .where(postTagDAO.name.eq(tagname))
