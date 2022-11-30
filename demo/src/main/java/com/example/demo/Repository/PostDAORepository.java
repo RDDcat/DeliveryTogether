@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.FluentQuery;
 import java.util.Optional;
 import java.util.function.Function;
 
-public interface PostDAORepository extends JpaRepository<PostDAO, Long> {
+public interface PostDAORepository extends JpaRepository<PostDAO, Long>, PostDAORepositoryCustom {
     @Override
     Optional<PostDAO> findById(Long aLong);
 }
