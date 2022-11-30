@@ -15,6 +15,8 @@ public class PostDTO {
     String describe;
     LocalDateTime currentAt;
 
+
     // 참여한 유저도 표시해야함..
+    int count;
 
 }
