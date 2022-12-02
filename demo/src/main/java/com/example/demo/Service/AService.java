@@ -31,8 +31,8 @@ public class AService {
     }
 
     // 게시글 작성
-    public void CreatePost(PostDAO postDAO){
-        createPostBean.exec(postDAO);
+    public void CreatePost(String body){
+        createPostBean.exec(body);
     }
 
     // 개인 정보 페이지

@@ -18,4 +18,7 @@ public class GetPostDAOsBean {
         return repository.findAllByPostTagDAOS(tagName);
     }
 
+    public PostDAO[] exec(List<String> tagNames) {
+        return null;
+    }
 }
