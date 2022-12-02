@@ -1,34 +1,51 @@
 package com.example.demo.Service;
 
+import com.example.demo.Bean.*;
 import com.example.demo.Model.DAO.PostDAO;
-import com.example.demo.Repository.PostDAORepository;
-import com.example.demo.Repository.UserDAORepository;
+import com.example.demo.Model.DTO.MainPageDTO;
+import com.example.demo.Model.DTO.PostDTO;
+import com.example.demo.Model.DTO.UserInfoDTO;
 import lombok.RequiredArgsConstructor;
-
-import java.util.List;
-import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
+@Service
 public class PostService {
+    @Autowired
+    GetMainBean getMainBean;
+    @Autowired
+    GetPostBean getPostBean;
+    @Autowired
+    CreatePostBean createPostBean;
+    @Autowired
+    GetUserInfoBean getUserInfoBean;
+    @Autowired
+    PrintStoreBean printStoreBean;
 
-    private final PostDAORepository postDAORepository;
-    private final UserDAORepository userDAORepository;
-
-    public PostDAO create(PostDAO postDAO){
-        postDAORepository.save(postDAO);
-        return postDAO;
+    // 홈 화면
+    public MainPageDTO GetMainPage(){
+        return getMainBean.exec();
     }
 
-    public Optional<PostDAO> loadById(Long postId){
-        return postDAORepository.findById(postId);
+    // 게시글 선택시
+    public PostDTO GetPost(long postId){
+        return getPostBean.exec(postId);
+    }
+
+    // 게시글 작성
+    public void create(String body){
+        createPostBean.exec(body);
+    }
+
+    // 개인 정보 페이지
+    // 카톡 로그인 연동
+    public UserInfoDTO GetUserInfo(Long userId){
+        return getUserInfoBean.exec(userId);
     }
 
     public void printStore(){
-        List<PostDAO> all = postDAORepository.findAll();
-        for(PostDAO p : all){
-            System.out.println("키 : " + p.getPostId());
-            System.out.println("데이터 : " + p.toString());
-        }
+        printStoreBean.exec();
     }
 
 }

@@ -21,31 +21,5 @@ public class AController {
         return service.GetMainPage();
     }
 
-    // 게시글 선택시
-    @GetMapping("/post/{postId}")
-    public PostDTO GetPost(@PathVariable long postId){
-        return service.GetPost(postId);
-    }
-
-    // 게시글 작성
-    @GetMapping("/create")
-    public void CreatePost(String title, String describe, String storeUrl, String chatUrl,  String limitMinute, long userId){
-        PostDAO postDAO = PostDAO.builder()
-                .title(title)
-                .describe(describe)
-                .storeUrl(storeUrl)
-                .chatUrl(chatUrl)
-                .limitMinute(limitMinute)
-                .build();
-
-        service.CreatePost(postDAO);
-    }
-
-    // 개인 정보 페이지
-    // 카톡 로그인 연동
-    @GetMapping("/user/{userId}")
-    public UserInfoDTO GetUserInfo(@PathVariable Long userId){
-        return service.GetUserInfo(userId);
-    }
 
 }

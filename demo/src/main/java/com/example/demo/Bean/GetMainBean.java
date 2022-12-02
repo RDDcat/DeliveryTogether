@@ -17,13 +17,16 @@ public class GetMainBean {
 
 
     public MainPageDTO exec(){
-        // 저장소에서 슥삭쇽
+        // 사용자 아이디로 사용자가 구독한 태그 이름 가져오기
+
+
+        // 태그 이름으로 저장소에서 PostDAO 가져오기
         PostDAO[] postDAOS = getPostDAOsBean.exec();
 
+        // DAO -> DTO 변환 후 리턴
         MainPageDTO mainPageDTO = new MainPageDTO();
         mainPageDTO.setMetaPostDTOS(getMetaPostDTOFromPostDAOs.exec(postDAOS));
-
-        // 변환 슥삭쇽
+        
         return mainPageDTO;
     }
 }
