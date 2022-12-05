@@ -27,8 +27,6 @@ public class PostDAO {
     private String title;
     private String describe;
     private String storeUrl;
-
-    private String chatUrl;
     private String limitMinute;
 
     // 참여 인원
