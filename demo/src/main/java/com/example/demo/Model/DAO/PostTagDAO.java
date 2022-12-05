@@ -9,9 +9,8 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
 @ToString
-@Builder
+
 public class PostTagDAO {
 
     @Id
@@ -28,4 +27,10 @@ public class PostTagDAO {
     @JoinColumn(name = "tag_id")
     private TagDAO tagDAO;
 
+    @Builder
+    public PostTagDAO(String name, PostDAO postDAO, TagDAO tagDAO) {
+        this.name = name;
+        this.postDAO = postDAO;
+        this.tagDAO = tagDAO;
+    }
 }

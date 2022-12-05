@@ -8,9 +8,7 @@ import javax.persistence.*;
 @Table(name = "tag")
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 @ToString
-@Builder
 public class TagDAO {
 
     @Id
@@ -19,5 +17,8 @@ public class TagDAO {
 
     private String name;
 
-
+    @Builder
+    public TagDAO(String name) {
+        this.name = name;
+    }
 }

@@ -28,5 +28,10 @@ public class UserTagDAO {
     @JoinColumn(name = "tag_id")
     private TagDAO tagDAO;
 
-
+    @Builder
+    public UserTagDAO(String name, UserDAO userDAO, TagDAO tagDAO) {
+        this.name = name;
+        this.userDAO = userDAO;
+        this.tagDAO = tagDAO;
+    }
 }

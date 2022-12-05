@@ -13,8 +13,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
-@AllArgsConstructor
-@Builder
 public class UserDAO {
 
     @Id
@@ -38,6 +36,21 @@ public class UserDAO {
 
     @OneToMany(mappedBy = "userDAO")
     List<PostDAO> postDAOS = new ArrayList<>();
+
+    @Builder
+    public UserDAO(String name, String email, String token, String refreshToken, Role role) {
+        this.name = name;
+        this.email = email;
+        this.token = token;
+        this.refreshToken = refreshToken;
+        this.role = role;
+    }
+
+    public void addTag(UserTagDAO userTagDAO){
+        if(userTagDAO != null){
+            userTagDAOS.add(userTagDAO);
+        }
+    }
 
     public UserDTO toUserDTO(){
         UserDTO userDTO = new UserDTO();

@@ -13,11 +13,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "post")
-@Builder
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
 public class PostDAO {
     @Id
@@ -47,6 +45,24 @@ public class PostDAO {
     @OneToMany(mappedBy = "postDAO")
     List<PostTagDAO> postTagDAOS = new ArrayList<>();
 
+
+    @Builder
+    public PostDAO(String title, String describe, String storeUrl, String limitMinute, int count, LocalDateTime createdAt, LocalDateTime updatedAt, UserDAO userDAO) {
+        this.title = title;
+        this.describe = describe;
+        this.storeUrl = storeUrl;
+        this.limitMinute = limitMinute;
+        this.count = count;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.userDAO = userDAO;
+    }
+
+    public void addTags(PostTagDAO postTagDAO){
+        if(postTagDAO != null){
+            postTagDAOS.add(postTagDAO);
+        }
+    }
 
     public MetaPostDTO toMetaPostDTO(){
         MetaPostDTO metaPostDTO = new MetaPostDTO();
