@@ -18,7 +18,7 @@ import java.util.List;
 public class UserDAO {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private Long userId;
     private String name;

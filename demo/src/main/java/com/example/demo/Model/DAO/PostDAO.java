@@ -21,7 +21,7 @@ import java.util.List;
 @ToString
 public class PostDAO {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "post_id")
     private Long postId;
     private String title;

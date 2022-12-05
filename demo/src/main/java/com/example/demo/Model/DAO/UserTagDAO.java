@@ -15,7 +15,7 @@ import javax.persistence.*;
 public class UserTagDAO {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userTagId;
 
     private String name;
