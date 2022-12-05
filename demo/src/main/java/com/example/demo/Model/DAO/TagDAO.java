@@ -1,5 +1,7 @@
 package com.example.demo.Model.DAO;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +11,8 @@ import javax.persistence.*;
 @Table(name = "tag")
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class TagDAO {
 
     @Id
@@ -16,4 +20,6 @@ public class TagDAO {
     private Long tagId;
 
     private String name;
+
+
 }

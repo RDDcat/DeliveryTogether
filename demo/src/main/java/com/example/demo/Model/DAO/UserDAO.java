@@ -13,6 +13,8 @@ import java.util.List;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
+@AllArgsConstructor
+@Builder
 public class UserDAO {
 
     @Id

@@ -10,6 +10,8 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
+@AllArgsConstructor
+@Builder
 public class UserTagDAO {
 
     @Id
