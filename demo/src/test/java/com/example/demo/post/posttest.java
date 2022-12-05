@@ -1,10 +1,9 @@
 package com.example.demo.post;
 
-import com.example.demo.Model.DAO.*;
-import com.example.demo.Repository.PostDAORepository;
-import com.example.demo.Repository.PostTagDAORepository;
-import com.example.demo.Repository.TagDAORepository;
-import com.example.demo.Repository.UserDAORepository;
+import com.example.demo.app.Model.DAO.*;
+import com.example.demo.app.Repository.PostDAORepository;
+import com.example.demo.app.Repository.TagDAORepository;
+import com.example.demo.app.Repository.UserDAORepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
