@@ -46,12 +46,6 @@ public class UserDAO {
         this.role = role;
     }
 
-    public void addTag(UserTagDAO userTagDAO){
-        if(userTagDAO != null){
-            userTagDAOS.add(userTagDAO);
-        }
-    }
-
     public UserDTO toUserDTO(){
         UserDTO userDTO = new UserDTO();
         userDTO.setUserId(userId);

@@ -58,11 +58,6 @@ public class PostDAO {
         this.userDAO = userDAO;
     }
 
-    public void addTags(PostTagDAO postTagDAO){
-        if(postTagDAO != null){
-            postTagDAOS.add(postTagDAO);
-        }
-    }
 
     public MetaPostDTO toMetaPostDTO(){
         MetaPostDTO metaPostDTO = new MetaPostDTO();
