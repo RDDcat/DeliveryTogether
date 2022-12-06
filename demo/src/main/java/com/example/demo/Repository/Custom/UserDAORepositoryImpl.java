@@ -1,16 +1,10 @@
-package com.example.demo.Repository;
+package com.example.demo.Repository.Custom;
 
-import com.example.demo.Model.DAO.QUserDAO;
-import com.example.demo.Model.DAO.QUserTagDAO;
-import com.example.demo.Model.DTO.PostTagSearchDTO;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
-import static com.example.demo.Model.DAO.QUserDAO.userDAO;
 import static com.example.demo.Model.DAO.QUserTagDAO.userTagDAO;
 
 @RequiredArgsConstructor

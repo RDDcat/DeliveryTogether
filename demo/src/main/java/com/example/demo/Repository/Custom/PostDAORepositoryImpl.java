@@ -1,4 +1,4 @@
-package com.example.demo.Repository;
+package com.example.demo.Repository.Custom;
 
 import com.example.demo.Model.DTO.PostTagSearchDTO;
 import com.example.demo.Model.DTO.QPostTagSearchDTO;
