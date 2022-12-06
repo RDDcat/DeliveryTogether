@@ -6,6 +6,8 @@ import com.example.demo.Model.DTO.UserInfoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class GetUserInfoDTOBean {
     @Autowired
@@ -15,10 +17,10 @@ public class GetUserInfoDTOBean {
 
     public UserInfoDTO exec(Long userId){
         //
-        UserDAO userDAO = getUserDAOBean.exec(userId);
+        Optional<UserDAO> userDAO = getUserDAOBean.exec(userId);
 
         //
-        UserDTO userDTO = getUserDTOBean.exec(userDAO);
+        UserDTO userDTO = getUserDTOBean.exec(userDAO.get());
 
         //
         UserInfoDTO userInfoDTO = exec(userDTO);
