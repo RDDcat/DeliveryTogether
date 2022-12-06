@@ -1,14 +1,7 @@
 package com.example.demo.post;
 
-<<<<<<< HEAD
-import com.example.demo.app.Model.DAO.*;
-import com.example.demo.app.Repository.PostDAORepository;
-import com.example.demo.app.Repository.TagDAORepository;
-import com.example.demo.app.Repository.UserDAORepository;
-=======
 import com.example.demo.Model.DAO.*;
 import com.example.demo.Repository.*;
->>>>>>> d36f3aa609fb2b4e6e679d38fa9271a661aa458a
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
