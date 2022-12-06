@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
-
 public class GetUserDAOBean {
     private final UserDAORepository userDAORepository;
 
