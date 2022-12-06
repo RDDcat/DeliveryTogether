@@ -22,6 +22,7 @@ public class PostDAORepositoryImpl implements PostDAORepositoryCustom {
     public Page<PostTagSearchDTO> searchPost(String tagname, Pageable pageable) {
     List<PostTagSearchDTO> results = queryFactory
                 .select(new QPostTagSearchDTO(
+                        postDAO.postId,
                         postDAO.title,
                         postDAO.count)
                 )
