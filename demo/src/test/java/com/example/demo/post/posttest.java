@@ -1,10 +1,7 @@
 package com.example.demo.post;
 
 import com.example.demo.Model.DAO.*;
-import com.example.demo.Repository.PostDAORepository;
-import com.example.demo.Repository.PostTagDAORepository;
-import com.example.demo.Repository.TagDAORepository;
-import com.example.demo.Repository.UserDAORepository;
+import com.example.demo.Repository.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,6 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
 
 @SpringBootTest
 @Transactional
@@ -28,6 +27,12 @@ public class posttest {
 
     @Autowired
     TagDAORepository tagDAORepository;
+
+    @Autowired
+    UserTagDAORepository userTagDAORepository;
+
+    @Autowired
+    PostTagDAORepository postTagDAORepository;
 
     @Test
     public void postTag_test() throws Exception {
@@ -66,8 +71,8 @@ public class posttest {
                 .userDAO(user1)
                 .build();
 
-        em.persist(user1Tag1);
-        em.persist(user1Tag2);
+        userTagDAORepository.save(user1Tag1);
+        userTagDAORepository.save(user1Tag2);
 
 
         PostDAO post1 = PostDAO.builder()
@@ -79,6 +84,8 @@ public class posttest {
                 .updatedAt(LocalDateTime.now())
                 .count(1)
                 .build();
+
+        postDAORepository.save(post1);
 
         PostTagDAO postTag1 = PostTagDAO.builder()
                 .name(d1.getName())
@@ -92,21 +99,24 @@ public class posttest {
                 .postDAO(post1)
                 .build();
 
-        em.persist(postTag1);
-        em.persist(postTag2);
+        postTagDAORepository.save(postTag1);
+        postTagDAORepository.save(postTag2);
 
-//        post1.addTags(postTag1);
-//        post1.addTags(postTag2);
+//        UserDAO userDAO = userDAORepository.findById(user1.getUserId()).get();
+//        System.out.println("userDAO = " + userDAO);
 
+        List<PostTagDAO> allByName = postTagDAORepository.findAllByName(postTag1.getName());
+//        for (PostTagDAO postTagDAO : allByName) {
+//            System.out.println("postTagDAO = " + postTagDAO);
+//            PostDAO postDAO = postDAORepository.findById(postTag1.getPostDAO().getPostId()).get();
+//            System.out.println("postDAO = " + postDAO);
+//        }
 
-        postDAORepository.save(post1);
-
-
-        System.out.println(user1);
-        System.out.println(d1);
-        System.out.println(d2);
-        System.out.println(user1Tag1);
-        System.out.println(user1Tag2);
-        System.out.println(post1);
+//        System.out.println(user1);
+//        System.out.println(d1);
+//        System.out.println(d2);
+//        System.out.println(user1Tag1);
+//        System.out.println(user1Tag2);
+//        System.out.println(post1);
     }
 }
