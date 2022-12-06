@@ -2,6 +2,7 @@ package com.example.demo.post;
 
 import com.example.demo.Model.DAO.*;
 import com.example.demo.Model.DTO.PostTagSearchDTO;
+import com.example.demo.Model.DTO.UserTagDTO;
 import com.example.demo.Repository.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,13 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @SpringBootTest
 @Transactional
@@ -121,11 +120,11 @@ public class posttest {
 
     @Test
     public void 사용자구독태그가져오기() throws Exception{
-        List<String> test =
-                userDAORepository.searchUserTags(userDAORepository.findByName("test").get().getUserId());
+        List<UserTagDTO> test =
+                userDAORepository.findAllUserTags(userDAORepository.findByName("test").get().getUserId());
 
-        for (String s : test) {
-            System.out.println("tag = " + s);
+        for (UserTagDTO s : test) {
+            System.out.println("UserTag = " + s);
         }
     }
 
