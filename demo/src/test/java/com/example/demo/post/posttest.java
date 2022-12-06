@@ -101,6 +101,7 @@ public class posttest {
 
         postDAORepository.save(post1);
 
+
         System.out.println(user1);
         System.out.println(d1);
         System.out.println(d2);
