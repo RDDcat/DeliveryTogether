@@ -1,16 +1,20 @@
 package com.example.demo.post;
 
 import com.example.demo.Model.DAO.*;
+import com.example.demo.Model.DTO.PostTagSearchDTO;
+import com.example.demo.Model.DTO.UserTagDTO;
 import com.example.demo.Repository.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @SpringBootTest
 @Transactional
@@ -34,8 +38,8 @@ public class posttest {
     @Autowired
     PostTagDAORepository postTagDAORepository;
 
-    @Test
-    public void postTag_test() throws Exception {
+    @BeforeEach
+    public void TestData() throws Exception{
         TagDAO d1 = TagDAO
                 .builder()
                 .name("제 1 기숙사")
@@ -101,22 +105,28 @@ public class posttest {
 
         postTagDAORepository.save(postTag1);
         postTagDAORepository.save(postTag2);
-
-//        UserDAO userDAO = userDAORepository.findById(user1.getUserId()).get();
-//        System.out.println("userDAO = " + userDAO);
-
-        List<PostTagDAO> allByName = postTagDAORepository.findAllByName(postTag1.getName());
-//        for (PostTagDAO postTagDAO : allByName) {
-//            System.out.println("postTagDAO = " + postTagDAO);
-//            PostDAO postDAO = postDAORepository.findById(postTag1.getPostDAO().getPostId()).get();
-//            System.out.println("postDAO = " + postDAO);
-//        }
-
-//        System.out.println(user1);
-//        System.out.println(d1);
-//        System.out.println(d2);
-//        System.out.println(user1Tag1);
-//        System.out.println(user1Tag2);
-//        System.out.println(post1);
     }
+
+    @Test
+    public void 태그에_해당되는_모든_포스트_가져오기() throws Exception {
+        PageRequest pageRequest = PageRequest.of(0, 3);
+
+        Page<PostTagSearchDTO> postTagSearchDTOS = postDAORepository.searchPost("제 1 기숙사", pageRequest);
+
+        for (PostTagSearchDTO postTagSearchDTO : postTagSearchDTOS) {
+            System.out.println("postTagSearchDTO = " + postTagSearchDTO);
+        }
+    }
+
+    @Test
+    public void 사용자구독태그가져오기() throws Exception{
+        List<UserTagDTO> test =
+                userDAORepository.findAllUserTags(userDAORepository.findByName("test").get().getUserId());
+
+        for (UserTagDTO s : test) {
+            System.out.println("UserTag = " + s);
+        }
+    }
+
+
 }

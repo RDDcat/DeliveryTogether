@@ -24,6 +24,7 @@ public class GetMainBean {
         List<String> tagNames = GetTagsBean.exec();
 
         // 태그 이름으로 저장소에서 PostDAO 가져오기
+        // TODO 함수 리턴 형식 변경으로 인한 변경 필요할거 같음
         PostDAO[] postDAOS = getPostDAOsBean.exec(tagNames);
 
         // DAO -> DTO 변환 후 리턴

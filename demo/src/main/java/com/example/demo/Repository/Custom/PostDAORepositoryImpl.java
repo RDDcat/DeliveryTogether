@@ -1,4 +1,4 @@
-package com.example.demo.Repository;
+package com.example.demo.Repository.Custom;
 
 import com.example.demo.Model.DTO.PostTagSearchDTO;
 import com.example.demo.Model.DTO.QPostTagSearchDTO;
@@ -22,8 +22,11 @@ public class PostDAORepositoryImpl implements PostDAORepositoryCustom {
     public Page<PostTagSearchDTO> searchPost(String tagname, Pageable pageable) {
     List<PostTagSearchDTO> results = queryFactory
                 .select(new QPostTagSearchDTO(
+                        postDAO.postId,
                         postDAO.title,
-                        postDAO.count)
+                        postDAO.count,
+                        postDAO.picture
+                        )
                 )
                 .from(postDAO)
                 .join(postDAO.postTagDAOS, postTagDAO)

@@ -24,6 +24,8 @@ public class PostDAO {
     private Long postId;
     private String title;
     private String describe;
+
+    private String picture;
     private String storeUrl;
     private String limitMinute;
 

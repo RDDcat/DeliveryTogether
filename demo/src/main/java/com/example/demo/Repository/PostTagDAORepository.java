@@ -10,6 +10,4 @@ import java.util.List;
 
 public interface PostTagDAORepository extends JpaRepository<PostTagDAO,Long> {
     List<PostTagDAO> findAllByName(String name);
-
-    Page<PostTagDAO> findAllByName(Pageable pageable, String name);
 }

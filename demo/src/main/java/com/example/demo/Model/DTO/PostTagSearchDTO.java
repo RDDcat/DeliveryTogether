@@ -6,14 +6,19 @@ import lombok.Data;
 // 홈화면에서 태그 이름으로 검색하는 DTO
 @Data
 public class PostTagSearchDTO {
-    String title;
-    int count;
 
-    //TODO 이미지 필드 추가
+    private Long postId;
+    private String title;
+    private int count;
+
+    private String picture;
 
     @QueryProjection
-    public PostTagSearchDTO(String title, int count) {
+
+    public PostTagSearchDTO(Long postId, String title, int count, String picture) {
+        this.postId = postId;
         this.title = title;
         this.count = count;
+        this.picture = picture;
     }
 }
