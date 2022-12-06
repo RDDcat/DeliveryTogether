@@ -13,20 +13,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class GetUserInfoBean {
     @Autowired
-    GetUserDAOBean getUserDAOBean;
-    @Autowired
-    GetUserDTOBean getUserDTOBean;
-    @Autowired
     GetUserInfoDTOBean getUserInfoDTOBean;
     public UserInfoDTO exec(Long userId){
-        //
-        UserDAO userDAO = getUserDAOBean.exec(userId);
-
-        //
-        UserDTO userDTO = getUserDTOBean.exec(userDAO);
-
-        //
-        UserInfoDTO userInfoDTO = getUserInfoDTOBean.exec(userDTO);
+        // 디비 요청
+        UserInfoDTO userInfoDTO = getUserInfoDTOBean.exec(userId);
+        
+        // 카카오 api 요청
 
         return userInfoDTO;
     }
