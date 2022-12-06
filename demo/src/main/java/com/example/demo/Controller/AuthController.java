@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.Model.DTO.MainPageDTO;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -12,9 +13,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 @Controller
 @RequestMapping("/auth")
 public class AuthController {
+
+    @GetMapping("/")
+    public ResponseEntity<String> GetMainPage() throws URISyntaxException {
+        HttpHeaders headers = new HttpHeaders();
+
+        RestTemplate restTemplate = new RestTemplate();
+        String client_id = "71e0a176033c8ff1373036d34e7a32ac";
+        String redirect_uri = "http://localhost:8080/auth/kakao/callback&response_type=code";
+
+        final String baseUrl = "https://kauth.kakao.com/oauth/authorize";
+
+        URI uri = new URI(baseUrl);
+
+        HttpHeaders header = new HttpHeaders();
+        header.set("client_id", client_id);
+        header.set("redirect_uri", redirect_uri);
+
+        HttpEntity<String> requestEntity = new HttpEntity<>(null, headers);
+
+        ResponseEntity<String> response = restTemplate.exchange(
+                uri, HttpMethod.GET,
+                requestEntity,
+                String.class
+        );
+
+        return response;
+    }
 
     @GetMapping("/kakao/callback")
     public @ResponseBody String KakaoCallback(String code){
