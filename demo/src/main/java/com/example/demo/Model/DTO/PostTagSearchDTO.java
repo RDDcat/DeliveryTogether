@@ -11,12 +11,14 @@ public class PostTagSearchDTO {
     private String title;
     private int count;
 
-    //TODO 이미지 필드 추가
+    private String picture;
 
     @QueryProjection
-    public PostTagSearchDTO(Long postId, String title, int count) {
+
+    public PostTagSearchDTO(Long postId, String title, int count, String picture) {
         this.postId = postId;
         this.title = title;
         this.count = count;
+        this.picture = picture;
     }
 }

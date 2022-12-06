@@ -19,4 +19,6 @@ public class PostDTO {
     // 참여한 유저도 표시해야함..
     int count;
 
+    String picture;
+
 }
