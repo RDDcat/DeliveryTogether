@@ -44,5 +44,11 @@ public class PostController {
     public UserInfoDTO GetUserInfo(@PathVariable Long userId){
         return service.GetUserInfo(userId);
     }
+    
+    // 개인 정보 구독 수정
+    @GetMapping("/user/{userId}")
+    public UserInfoDTO changeSub(@PathVariable Long userId){
+        return null;
+    }
 
 }
