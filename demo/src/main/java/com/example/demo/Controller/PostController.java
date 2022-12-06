@@ -46,8 +46,8 @@ public class PostController {
     }
     
     // 개인 정보 구독 수정
-    @GetMapping("/user/{userId}")
-    public UserInfoDTO changeSub(@PathVariable Long userId){
+    @GetMapping("/user/sub/{tagName}")
+    public UserInfoDTO changeSub(@PathVariable String tagName){
         return null;
     }
 

@@ -1,5 +1,6 @@
 package com.example.demo.Service;
 
+import com.example.demo.Bean.InitUserBean;
 import com.example.demo.Model.DAO.TagDAO;
 import com.example.demo.Model.DAO.UserDAO;
 import com.example.demo.Model.DAO.UserTagDAO;
@@ -7,17 +8,22 @@ import com.example.demo.Repository.TagDAORepository;
 import com.example.demo.Repository.UserDAORepository;
 import com.example.demo.Repository.UserTagDAORepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
+@Service
 public class UserService {
     private final UserDAORepository userDAORepository;
 
     private final UserTagDAORepository userTagDAORepository;
 
     private final TagDAORepository tagDAORepository;
+    @Autowired
+    InitUserBean initUserBean;
 
     public Optional<UserDAO> loadUserById(Long userId){
         return userDAORepository.findById(userId);
@@ -68,5 +74,8 @@ public class UserService {
         return user;
     }
 
+    public void InitUser(){
+        initUserBean.exec();
+    }
 
 }

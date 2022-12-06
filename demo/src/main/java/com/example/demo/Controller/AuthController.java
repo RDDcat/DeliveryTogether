@@ -1,9 +1,11 @@
 package com.example.demo.Controller;
 
-import com.example.demo.Model.DTO.MainPageDTO;
+import com.example.demo.Model.api.KakaoUserDTO;
 import com.example.demo.Model.OAuthToken;
+import com.example.demo.Service.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -13,16 +15,16 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.net.URI;
 import java.net.URISyntaxException;
 
 @Controller
 @RequestMapping("/auth")
 public class AuthController {
+    @Autowired
+    UserService userService;
 
     @GetMapping("/")
     public RedirectView GetMainPage() throws URISyntaxException {
@@ -41,7 +43,7 @@ public class AuthController {
     }
 
     @GetMapping("/kakao/callback")
-    public @ResponseBody ResponseEntity<String> KakaoCallback(String code){
+    public String KakaoCallback(String code){
         // Post로 데이터 요청
         RestTemplate rt = new RestTemplate();
 
@@ -89,8 +91,23 @@ public class AuthController {
                 String.class
         );
 
-        return response2;
+        System.out.println("여기야 여기 : ");
+        System.out.println(response2);
 
+        KakaoUserDTO kakaoUserDTO =null;
+        try {
+            kakaoUserDTO = objectMapper.readValue(response2.getBody(), KakaoUserDTO.class);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println(kakaoUserDTO);
+
+        // 회원 정보 디비에 저장
+        userService.InitUser();
+
+        // 로그인 후 메인페이지로 (이거 빌드하고 봐야함)
+        return "index";
 
     }
 

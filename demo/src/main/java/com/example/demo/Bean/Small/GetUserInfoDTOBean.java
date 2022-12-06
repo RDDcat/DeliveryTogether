@@ -12,8 +12,6 @@ public class GetUserInfoDTOBean {
     GetUserDAOBean getUserDAOBean;
     @Autowired
     GetUserDTOBean getUserDTOBean;
-    @Autowired
-    GetUserInfoDTOBean getUserInfoDTOBean;
 
     public UserInfoDTO exec(Long userId){
         //
@@ -23,7 +21,7 @@ public class GetUserInfoDTOBean {
         UserDTO userDTO = getUserDTOBean.exec(userDAO);
 
         //
-        UserInfoDTO userInfoDTO = getUserInfoDTOBean.exec(userDTO);
+        UserInfoDTO userInfoDTO = exec(userDTO);
 
         return userInfoDTO;
     }
