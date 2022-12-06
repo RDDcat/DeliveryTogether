@@ -11,8 +11,6 @@ public interface PostDAORepository extends JpaRepository<PostDAO, Long>, PostDAO
     @Override
     Optional<PostDAO> findById(Long aLong);
 
-    List<PostDAO> findAllByPostTagDAOS(String tagName);
-
     @Override
     List<PostDAO> findAll();
 }
