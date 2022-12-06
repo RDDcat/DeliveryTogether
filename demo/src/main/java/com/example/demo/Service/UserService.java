@@ -60,10 +60,12 @@ public class UserService {
         }
     }
 
-    public void updateTokens(Long userId, String token, String refreshToken){
+    public UserDAO updateTokens(Long userId, String token, String refreshToken){
         UserDAO user = userDAORepository.findById(userId).get();
         user.setToken(token);
         user.setRefreshToken(refreshToken);
+
+        return user;
     }
 
 
