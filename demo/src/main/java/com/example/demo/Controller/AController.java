@@ -16,9 +16,9 @@ public class AController {
     AService service;
 
     // 홈 화면
-    @GetMapping("/")
-    public MainPageDTO GetMainPage(){
-        return service.GetMainPage();
+    @GetMapping("/{userId}")
+    public MainPageDTO GetMainPage(@PathVariable long userId){
+        return service.GetMainPage(userId);
     }
 
 

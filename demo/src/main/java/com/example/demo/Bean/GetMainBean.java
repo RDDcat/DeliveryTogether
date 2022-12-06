@@ -5,7 +5,6 @@ import com.example.demo.Bean.Small.GetPostDAOsBean;
 import com.example.demo.Bean.Small.GetTagsBean;
 import com.example.demo.Model.DAO.PostDAO;
 import com.example.demo.Model.DTO.MainPageDTO;
-import com.example.demo.Model.DTO.MetaPostDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +18,7 @@ public class GetMainBean {
     GetMetaPostDTOFromPostDAOs getMetaPostDTOFromPostDAOs;
 
 
-    public MainPageDTO exec(){
+    public MainPageDTO exec(long userId){
         // 사용자 아이디로 사용자가 구독한 태그 이름 가져오기
         List<String> tagNames = GetTagsBean.exec();
 

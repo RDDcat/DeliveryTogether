@@ -19,9 +19,9 @@ public class PostController {
     PostService service;
 
     // 홈 화면
-    @GetMapping("/")
-    public MainPageDTO GetMainPage(){
-        return service.GetMainPage();
+    @GetMapping("/{userId}")
+    public MainPageDTO GetMainPage(@PathVariable long userId){
+        return service.GetMainPage(userId);
     }
 
     // 게시글 선택시

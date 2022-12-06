@@ -9,6 +9,9 @@ import java.util.Optional;
 
 public interface UserDAORepository extends JpaRepository<UserDAO, Long>, UserDAORepositoryCustom {
     @Override
+    <S extends UserDAO> S save(S entity);
+
+    @Override
     Optional<UserDAO> findById(Long aLong);
 
     Optional<UserDAO> findByEmail(String email);

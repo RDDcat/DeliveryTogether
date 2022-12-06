@@ -11,7 +11,7 @@ import java.util.List;
 @Table(name = "user")
 @Getter
 @Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @ToString
 public class UserDAO {
 
@@ -20,8 +20,6 @@ public class UserDAO {
     @Column(name = "user_id")
     private Long userId;
     private String name;
-
-    private String email;
 
     private String token;
 
@@ -38,9 +36,8 @@ public class UserDAO {
     List<PostDAO> postDAOS = new ArrayList<>();
 
     @Builder
-    public UserDAO(String name, String email, String token, String refreshToken, Role role) {
+    public UserDAO(String name, String token, String refreshToken, Role role) {
         this.name = name;
-        this.email = email;
         this.token = token;
         this.refreshToken = refreshToken;
         this.role = role;

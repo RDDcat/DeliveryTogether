@@ -1,7 +1,6 @@
 package com.example.demo.Service;
 
 import com.example.demo.Bean.*;
-import com.example.demo.Model.DAO.PostDAO;
 import com.example.demo.Model.DTO.MainPageDTO;
 import com.example.demo.Model.DTO.PostDTO;
 import com.example.demo.Model.DTO.UserInfoDTO;
@@ -24,8 +23,8 @@ public class PostService {
     PrintStoreBean printStoreBean;
 
     // 홈 화면
-    public MainPageDTO GetMainPage(){
-        return getMainBean.exec();
+    public MainPageDTO GetMainPage(long userId){
+        return getMainBean.exec(userId);
     }
 
     // 게시글 선택시

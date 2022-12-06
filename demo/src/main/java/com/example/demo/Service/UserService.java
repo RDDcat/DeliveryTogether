@@ -4,6 +4,8 @@ import com.example.demo.Bean.InitUserBean;
 import com.example.demo.Model.DAO.TagDAO;
 import com.example.demo.Model.DAO.UserDAO;
 import com.example.demo.Model.DAO.UserTagDAO;
+import com.example.demo.Model.OAuthToken;
+import com.example.demo.Model.api.KakaoUserDTO;
 import com.example.demo.Repository.TagDAORepository;
 import com.example.demo.Repository.UserDAORepository;
 import com.example.demo.Repository.UserTagDAORepository;
@@ -74,8 +76,8 @@ public class UserService {
         return user;
     }
 
-    public void InitUser(){
-        initUserBean.exec();
+    public void InitUser(KakaoUserDTO kakaoUserDTO, OAuthToken oauthToken){
+        initUserBean.exec(kakaoUserDTO, oauthToken);
     }
 
 }

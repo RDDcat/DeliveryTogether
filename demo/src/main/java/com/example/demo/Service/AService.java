@@ -4,7 +4,6 @@ import com.example.demo.Bean.GetMainBean;
 import com.example.demo.Bean.GetPostBean;
 import com.example.demo.Bean.GetUserInfoBean;
 import com.example.demo.Bean.CreatePostBean;
-import com.example.demo.Model.DAO.PostDAO;
 import com.example.demo.Model.DTO.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +20,8 @@ public class AService {
     GetUserInfoBean getUserInfoBean;
 
     // 홈 화면
-    public MainPageDTO GetMainPage(){
-        return getMainBean.exec();
+    public MainPageDTO GetMainPage(long userId){
+        return getMainBean.exec(userId);
     }
 
     // 게시글 선택시

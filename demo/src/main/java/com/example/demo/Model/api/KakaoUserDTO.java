@@ -11,7 +11,7 @@ public class KakaoUserDTO {
     public KakaoAccount kakao_account;
 
     @Data
-    class Properties {
+    public class Properties {
 
         public String nickname;
         public String profile_image;
@@ -20,14 +20,14 @@ public class KakaoUserDTO {
     }
 
     @Data
-    class KakaoAccount {
+    public class KakaoAccount {
 
         public Boolean profile_nickname_needs_agreement;
         public Boolean profile_image_needs_agreement;
         public Profile profile;
 
         @Data
-        class Profile {
+        public class Profile {
 
             public String nickname;
             public String thumbnail_image_url;

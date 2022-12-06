@@ -43,7 +43,7 @@ public class AuthController {
     }
 
     @GetMapping("/kakao/callback")
-    public String KakaoCallback(String code){
+    public RedirectView KakaoCallback(String code){
         // Post로 데이터 요청
         RestTemplate rt = new RestTemplate();
 
@@ -104,11 +104,16 @@ public class AuthController {
         System.out.println(kakaoUserDTO);
 
         // 회원 정보 디비에 저장
-        userService.InitUser();
+        userService.InitUser(kakaoUserDTO, oauthToken);
 
-        // 로그인 후 메인페이지로 (이거 빌드하고 봐야함)
-        return "index";
+        // 로그인 후 메인페이지에 필요한 JSON 바로 보내야함
+        // post로 리다이랙트
+        final String baseUrl = "http://localhost:8080/post?userId="+kakaoUserDTO.getId();
 
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl(baseUrl);
+
+        return redirectView;
     }
 
     @GetMapping("/kakao/profile")

@@ -6,9 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import javax.persistence.EntityManager;
 
+@EnableJpaRepositories
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 //		(exclude = {DataSourceAutoConfiguration.class })
 public class DemoApplication {
