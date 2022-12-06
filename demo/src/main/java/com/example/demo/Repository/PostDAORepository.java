@@ -1,8 +1,8 @@
 package com.example.demo.Repository;
 
 import com.example.demo.Model.DAO.PostDAO;
+import com.example.demo.Repository.Custom.PostDAORepositoryCustom;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.Optional;
