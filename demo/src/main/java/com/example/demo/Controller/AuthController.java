@@ -1,6 +1,9 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Model.DTO.MainPageDTO;
+import com.example.demo.Model.OAuthToken;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -38,13 +41,13 @@ public class AuthController {
     }
 
     @GetMapping("/kakao/callback")
-    public @ResponseBody String KakaoCallback(String code){
-
-
+    public @ResponseBody ResponseEntity<String> KakaoCallback(String code){
         // Post로 데이터 요청
         RestTemplate rt = new RestTemplate();
+
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+
         MultiValueMap<String, String> param = new LinkedMultiValueMap<>();
         param.add("grant_type", "authorization_code");
         param.add("client_id", "71e0a176033c8ff1373036d34e7a32ac");
@@ -60,10 +63,35 @@ public class AuthController {
                 String.class
         );
 
-        // 콜백이후
-        GetKakaoProfile();
+        System.out.println(response);
 
-        return "카카오 인증 완료 : " +response;
+        ObjectMapper objectMapper = new ObjectMapper();
+        OAuthToken oauthToken =null;
+        try {
+            oauthToken = objectMapper.readValue(response.getBody(), OAuthToken.class);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+        // Post로 데이터 요청
+        RestTemplate rt2 = new RestTemplate();
+
+        HttpHeaders headers2 = new HttpHeaders();
+        headers2.add("Authorization", "Bearer " + oauthToken.getAccess_token());
+        headers2.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+
+        HttpEntity<MultiValueMap<String, String>> kakaoProfileRequest = new HttpEntity<>(headers2);
+
+        ResponseEntity<String> response2 = rt2.exchange(
+                "https://kapi.kakao.com/v2/user/me",
+                HttpMethod.POST,
+                kakaoProfileRequest,
+                String.class
+        );
+
+        return response2;
+
+
     }
 
     @GetMapping("/kakao/profile")
