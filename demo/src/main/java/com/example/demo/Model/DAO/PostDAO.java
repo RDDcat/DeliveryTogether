@@ -68,17 +68,6 @@ public class PostDAO {
         this.userDAO = userDAO;
     }
 
-
-    public MetaPostDTO toMetaPostDTO(){
-        MetaPostDTO metaPostDTO = new MetaPostDTO();
-
-        metaPostDTO.setPostId(postId);
-        metaPostDTO.setTitle(title);
-        metaPostDTO.setLimitMinute(limitMinute);
-        metaPostDTO.setDescribe(describe);
-        return metaPostDTO;
-    }
-
     public PostDTO toPostDTO(){
         PostDTO postDTO = new PostDTO();
 
