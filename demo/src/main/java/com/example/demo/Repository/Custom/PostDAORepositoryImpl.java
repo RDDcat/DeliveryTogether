@@ -24,7 +24,7 @@ public class PostDAORepositoryImpl implements PostDAORepositoryCustom {
                 .select(new QPostTagSearchDTO(
                         postDAO.postId,
                         postDAO.title,
-                        postDAO.count,
+                        postDAO.countNum,
                         postDAO.picture
                         )
                 )
