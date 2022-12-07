@@ -55,7 +55,7 @@ public class PostController {
         userService.deleteTag(tagId);
     }
 
-    @PostMapping("/user/sub/add/")
+    @GetMapping("/user/sub/add")
     public void addSub(@RequestParam(value = "userId", required = true) Long userId,
                        @RequestParam(value = "tagName", required = true) String tagName){
         userService.addTag(userId,tagName);
