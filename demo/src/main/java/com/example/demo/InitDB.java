@@ -41,12 +41,12 @@ public class InitDB {
         public void dbInit1() {
             TagDAO d1 = TagDAO
                     .builder()
-                    .name("1 기숙사")
+                    .name("1기숙사")
                     .build();
 
             TagDAO d2 = TagDAO
                     .builder()
-                    .name("2 기숙사")
+                    .name("2기숙사")
                     .build();
 
             TagDAO d3 = TagDAO
