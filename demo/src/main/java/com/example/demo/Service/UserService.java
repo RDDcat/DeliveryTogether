@@ -21,7 +21,6 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
-@CrossOrigin("*")
 public class UserService {
     private final TagDAORepository tagDAORepository;
     @Autowired

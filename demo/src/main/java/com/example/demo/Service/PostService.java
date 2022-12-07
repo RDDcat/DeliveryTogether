@@ -14,7 +14,6 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
-@CrossOrigin("*")
 public class PostService {
     @Autowired
     GetMainBean getMainBean;
