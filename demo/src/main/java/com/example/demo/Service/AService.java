@@ -20,8 +20,8 @@ public class AService {
     GetUserInfoBean getUserInfoBean;
 
     // 홈 화면
-    public MainPageDTO GetMainPage(long userId){
-        return getMainBean.exec(userId);
+    public MainPageDTO GetMainPage(String token){
+        return getMainBean.exec(token);
     }
 
     // 게시글 선택시
