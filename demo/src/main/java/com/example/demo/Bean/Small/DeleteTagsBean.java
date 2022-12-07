@@ -12,11 +12,7 @@ public class DeleteTagsBean {
     private final UserTagDAORepository userTagDAORepository;
 
     //삭제
-    public void exec(List<Long> ids){
-        if(ids.size() > 0){
-            for (Long id : ids) {
-                userTagDAORepository.deleteById(id);
-            }
-        }
+    public void exec(Long id){
+        userTagDAORepository.deleteById(id);
     }
 }

@@ -7,5 +7,5 @@ import java.util.List;
 @Data
 public class UserInfoDTO {
     UserDTO userDTO;
-    List<String> tagNames;
+    List<UserTagDTO> tags;
 }

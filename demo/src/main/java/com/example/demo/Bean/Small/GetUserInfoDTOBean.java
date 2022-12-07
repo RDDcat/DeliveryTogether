@@ -3,6 +3,7 @@ package com.example.demo.Bean.Small;
 import com.example.demo.Model.DAO.UserDAO;
 import com.example.demo.Model.DTO.UserDTO;
 import com.example.demo.Model.DTO.UserInfoDTO;
+import com.example.demo.Model.DTO.UserTagDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,19 +27,19 @@ public class GetUserInfoDTOBean {
         //
         UserDTO userDTO = getUserDTOBean.exec(userDAO.get());
 
-        List<String> tagNames = getTagsBean.exec(userId);
+        List<UserTagDTO> tags = getTagsBean.exec(userId);
 
         //
-        UserInfoDTO userInfoDTO = exec(userDTO, tagNames);
+        UserInfoDTO userInfoDTO = exec(userDTO, tags);
 
         return userInfoDTO;
     }
 
     // 변환 userDTO -> userInfoDTO
-    public UserInfoDTO exec(UserDTO userDTO, List<String> tagNames){
+    public UserInfoDTO exec(UserDTO userDTO, List<UserTagDTO> tags){
         UserInfoDTO userInfoDTO = new UserInfoDTO();
         userInfoDTO.setUserDTO(userDTO);
-        userInfoDTO.setTagNames(tagNames);
+        userInfoDTO.setTags(tags);
         return userInfoDTO;
     }
 }
