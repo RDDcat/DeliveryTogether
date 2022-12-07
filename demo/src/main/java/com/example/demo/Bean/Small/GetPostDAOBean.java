@@ -13,7 +13,7 @@ public class GetPostDAOBean {
     @Autowired
     PostDAORepository repository;
 
-    public Optional<PostDAO> exec(long id){
+    public Optional<PostDAO> exec(Long id){
         // 위임
         return repository.findById(id);
     }

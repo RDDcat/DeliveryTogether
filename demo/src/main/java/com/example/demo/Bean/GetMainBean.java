@@ -1,9 +1,6 @@
 package com.example.demo.Bean;
 
-import com.example.demo.Bean.Small.GetMainPageDTOBean;
-import com.example.demo.Bean.Small.GetPostDAOsBean;
-import com.example.demo.Bean.Small.GetTagsBean;
-import com.example.demo.Bean.Small.GetUserIdBean;
+import com.example.demo.Bean.Small.*;
 import com.example.demo.Model.DAO.UserDAO;
 import com.example.demo.Model.DTO.MainPageDTO;
 import com.example.demo.Model.DTO.MetaPostDTO;
@@ -23,6 +20,8 @@ public class GetMainBean {
     GetTagsBean getTagsBean;
     @Autowired
     GetUserIdBean getUserIdBean;
+    @Autowired
+    GetDefaultPostDAOS getDefaultPostDAOS;
 
     public MainPageDTO exec(String token){
 
@@ -46,6 +45,12 @@ public class GetMainBean {
 
         // 태그 이름으로 저장소에서 PostDAO 가져오기
         List<MetaPostDTO> metaPostDTOS = getPostDAOsBean.exec(tagNames);
+
+        // 만약 구독 정보가 없으면 다 가져오기
+        if(metaPostDTOS == null){
+            metaPostDTOS = getDefaultPostDAOS.exec();
+        }
+
 
         // DAO -> DTO 변환 후 리턴
         MainPageDTO mainPageDTO = getMainPageDTOBean.exec(metaPostDTOS, userId, token);

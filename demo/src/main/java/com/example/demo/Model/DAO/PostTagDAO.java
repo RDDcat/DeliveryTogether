@@ -9,8 +9,6 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@ToString
-
 public class PostTagDAO {
 
     @Id
