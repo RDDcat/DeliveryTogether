@@ -5,5 +5,5 @@ import com.example.demo.Model.DTO.UserTagDTO;
 import java.util.List;
 
 public interface UserDAORepositoryCustom {
-    List<UserTagDTO> findAllUserTags(Long userId);
+    List<String> findAllUserTags(Long userId);
 }
