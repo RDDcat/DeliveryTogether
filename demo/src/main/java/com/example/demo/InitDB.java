@@ -129,12 +129,26 @@ public class InitDB {
                     .userDAO(maro)
                     .build();
 
+            UserTagDAO maroTag3 = UserTagDAO.builder()
+                    .name(d2.getName())
+                    .tagDAO(d2)
+                    .userDAO(maro)
+                    .build();
+
+            UserTagDAO maroTag4 = UserTagDAO.builder()
+                    .name(d4.getName())
+                    .tagDAO(d4)
+                    .userDAO(maro)
+                    .build();
+
             userTagDAORepository.save(user1Tag1);
             userTagDAORepository.save(user1Tag2);
             userTagDAORepository.save(user2Tag1);
             userTagDAORepository.save(user2Tag2);
             userTagDAORepository.save(maroTag1);
             userTagDAORepository.save(maroTag2);
+            userTagDAORepository.save(maroTag3);
+            userTagDAORepository.save(maroTag4);
 
 
             PostDAO post1 = PostDAO.builder()
