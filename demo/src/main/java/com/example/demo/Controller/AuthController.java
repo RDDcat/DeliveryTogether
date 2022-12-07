@@ -5,6 +5,8 @@ import com.example.demo.Model.OAuthToken;
 import com.example.demo.Service.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -19,9 +21,11 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.net.URISyntaxException;
+import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/auth")
+@Slf4j
 public class AuthController {
     @Autowired
     UserService userService;
@@ -37,7 +41,7 @@ public class AuthController {
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl(baseUrl);
 
-        System.out.println(redirectView);
+        log.info(redirectView.getUrl());
 
         return redirectView;
     }
@@ -65,7 +69,7 @@ public class AuthController {
                 String.class
         );
 
-        System.out.println(response);
+        log.info("response", response.toString());
 
         ObjectMapper objectMapper = new ObjectMapper();
         OAuthToken oauthToken =null;
@@ -91,8 +95,7 @@ public class AuthController {
                 String.class
         );
 
-        System.out.println("여기야 여기 : ");
-        System.out.println(response2);
+        log.info("여기야 여기 : ", response2.toString());
 
         KakaoUserDTO kakaoUserDTO =null;
         try {
@@ -102,13 +105,15 @@ public class AuthController {
         }
 
         System.out.println(kakaoUserDTO);
+        log.info("저장 실행 : ", kakaoUserDTO.toString());
 
         // 회원 정보 디비에 저장
         userService.InitUser(kakaoUserDTO, oauthToken);
+        System.out.println("저장 실행");
 
         // 로그인 후 메인페이지에 필요한 JSON 바로 보내야함
         // post로 리다이랙트
-        final String baseUrl = "http://localhost:8080/post?userId="+oauthToken.getAccess_token();
+        final String baseUrl = "http://localhost:8080/post/"+oauthToken.getAccess_token();
 
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl(baseUrl);

@@ -9,10 +9,11 @@ import java.util.List;
 @Component
 public class GetMainPageDTOBean {
 
-    public MainPageDTO exec(List<MetaPostDTO> postDAOS, long userId){
+    public MainPageDTO exec(List<MetaPostDTO> postDAOS, long userId, String token){
         MainPageDTO mainPageDTO = new MainPageDTO();
 
         mainPageDTO.setUserId(userId);
+        mainPageDTO.setAccess_token(token);
         mainPageDTO.setMetaPostDTOS(postDAOS);
 
         return mainPageDTO;

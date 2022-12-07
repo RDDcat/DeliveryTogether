@@ -13,6 +13,7 @@ public class SaveUserBean {
     UserDAORepository repository;
 
     public void exec(UserDAO userDAO){
+        System.out.println("저장 실행" + userDAO);
         // 저장
         repository.save(userDAO);
     }
