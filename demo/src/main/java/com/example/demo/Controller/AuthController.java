@@ -116,7 +116,7 @@ public class AuthController {
 
         // 로그인 후 메인페이지에 필요한 JSON 바로 보내야함
         // post로 리다이랙트
-        final String baseUrl = "http://localhost:8080/post/"+oauthToken.getAccess_token();
+        final String baseUrl = "http://localhost:8080/#/post/"+oauthToken.getAccess_token()+"/amu";
 
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl(baseUrl);

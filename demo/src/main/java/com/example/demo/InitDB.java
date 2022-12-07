@@ -282,6 +282,66 @@ public class InitDB {
                     .picture("/static/img/food11.71fb03cc.jpg")
                     .build();
 
+            PostDAO post13 = PostDAO.builder()
+                    .title("양식-마이야르")
+                    .describe("붉닭 붕어빵 맛있겠다 그치?")
+                    .storeUrl("http://testurl")
+                    .limitMinute("15")
+                    .createdAt(LocalDateTime.now())
+                    .updatedAt(LocalDateTime.now())
+                    .countNum(1)
+                    .userDAO(user1)
+                    .picture("/static/img/food20.9bf13585.jpg")
+                    .build();
+
+            PostDAO post14 = PostDAO.builder()
+                    .title("양식-마이야르")
+                    .describe("붉닭 붕어빵 맛있겠다 그치?")
+                    .storeUrl("http://testurl")
+                    .limitMinute("15")
+                    .createdAt(LocalDateTime.now())
+                    .updatedAt(LocalDateTime.now())
+                    .countNum(1)
+                    .userDAO(maro)
+                    .picture("/static/img/food20.9bf13585.jpg")
+                    .build();
+
+            PostDAO post15 = PostDAO.builder()
+                    .title("양식-마이야르")
+                    .describe("팥붕과 슈붕 그리고.. 아이스크림..!!")
+                    .storeUrl("http://testurl")
+                    .limitMinute("15")
+                    .createdAt(LocalDateTime.now())
+                    .updatedAt(LocalDateTime.now())
+                    .countNum(1)
+                    .userDAO(maro)
+                    .picture("/static/img/food20.9bf13585.jpg")
+                    .build();
+
+            PostDAO post16 = PostDAO.builder()
+                    .title("양식-마이야르")
+                    .describe("키친 마이아르 승우아빠 응원해")
+                    .storeUrl("http://testurl")
+                    .limitMinute("15")
+                    .createdAt(LocalDateTime.now())
+                    .updatedAt(LocalDateTime.now())
+                    .countNum(1)
+                    .userDAO(maro)
+                    .picture("/static/img/food20.9bf13585.jpg")
+                    .build();
+
+            PostDAO post17 = PostDAO.builder()
+                    .title("양식-마이야르")
+                    .describe("명란 붕어빵 레전드임")
+                    .storeUrl("http://testurl")
+                    .limitMinute("15")
+                    .createdAt(LocalDateTime.now())
+                    .updatedAt(LocalDateTime.now())
+                    .countNum(1)
+                    .userDAO(maro)
+                    .picture("/static/img/food20.9bf13585.jpg")
+                    .build();
+
 
             postDAORepository.save(post1);
             postDAORepository.save(post2);
@@ -295,6 +355,11 @@ public class InitDB {
             postDAORepository.save(post10);
             postDAORepository.save(post11);
             postDAORepository.save(post12);
+            postDAORepository.save(post13);
+            postDAORepository.save(post14);
+            postDAORepository.save(post15);
+            postDAORepository.save(post16);
+            postDAORepository.save(post17);
 
             PostTagDAO postTag1 = PostTagDAO.builder()
                     .name(d1.getName())
@@ -392,6 +457,30 @@ public class InitDB {
                     .postDAO(post7)
                     .build();
 
+            PostTagDAO postTag17 = PostTagDAO.builder()
+                    .name(d1.getName())
+                    .tagDAO(d1)
+                    .postDAO(post13)
+                    .build();
+
+            PostTagDAO postTag18 = PostTagDAO.builder()
+                    .name(d2.getName())
+                    .tagDAO(d2)
+                    .postDAO(post14)
+                    .build();
+
+            PostTagDAO postTag19 = PostTagDAO.builder()
+                    .name(d3.getName())
+                    .tagDAO(d3)
+                    .postDAO(post15)
+                    .build();
+
+            PostTagDAO postTag20 = PostTagDAO.builder()
+                    .name(d4.getName())
+                    .tagDAO(d4)
+                    .postDAO(post16)
+                    .build();
+
 
             postTagDAORepository.save(postTag1);
             postTagDAORepository.save(postTag2);
@@ -409,6 +498,10 @@ public class InitDB {
             postTagDAORepository.save(postTag14);
             postTagDAORepository.save(postTag15);
             postTagDAORepository.save(postTag16);
+            postTagDAORepository.save(postTag17);
+            postTagDAORepository.save(postTag18);
+            postTagDAORepository.save(postTag19);
+            postTagDAORepository.save(postTag20);
         }
     }
 }
