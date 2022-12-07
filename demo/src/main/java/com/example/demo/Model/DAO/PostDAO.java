@@ -1,6 +1,5 @@
 package com.example.demo.Model.DAO;
 
-import com.example.demo.Model.DTO.MetaPostDTO;
 import com.example.demo.Model.DTO.PostDTO;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -30,7 +29,7 @@ public class PostDAO {
     private String limitMinute;
 
     // 참여 인원
-    private int count;
+    private int countNum;
 
     // 이거 타임스탬프 찍어야함
     @CreatedDate
@@ -48,8 +47,8 @@ public class PostDAO {
     List<PostTagDAO> postTagDAOS = new ArrayList<>();
 
     public boolean addCount(){
-        if (this.count <= 3){
-            this.count += 1;
+        if (this.countNum <= 3){
+            this.countNum += 1;
             return true;
         }
 
@@ -62,7 +61,7 @@ public class PostDAO {
         this.describe = describe;
         this.storeUrl = storeUrl;
         this.limitMinute = limitMinute;
-        this.count = count;
+        this.countNum = count;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.userDAO = userDAO;
@@ -77,7 +76,7 @@ public class PostDAO {
         postDTO.setStoreUrl(storeUrl);
         postDTO.setDescribe(describe);
         postDTO.setCurrentAt(createdAt);
-        postDTO.setCount(count);
+        postDTO.setCount(countNum);
         return postDTO;
     }
 
