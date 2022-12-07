@@ -21,30 +21,27 @@ public class AddTagsBean {
     UserTagDAORepository userTagDAORepository;
 
     //수정
-    public void exec(Long userId, List<String> tagNames){
-        for (String tagName : tagNames) {
+    public void exec(Long userId, String tagName){
+        Optional<TagDAO> getTag = tagDAORepository.findByName(tagName);
+        TagDAO tag = null;
 
-            Optional<TagDAO> getTag = tagDAORepository.findByName(tagName);
-            TagDAO tag = null;
-
-            // 태그가 등록되어 있지 않을 때
-            if(getTag == null){
-                tag = tagDAORepository.save(TagDAO.builder()
-                        .name(tagName)
-                        .build());
-            }
-            // 태그가 있을 때
-            else {
-                tag = getTag.get();
-            }
-
-            UserTagDAO userTag = UserTagDAO.builder()
-                    .name(tag.getName())
-                    .userDAO(userDAORepository.findById(userId).get())
-                    .tagDAO(tag)
-                    .build();
-
-            userTagDAORepository.save(userTag);
+        // 태그가 등록되어 있지 않을 때
+        if(getTag == null){
+            tag = tagDAORepository.save(TagDAO.builder()
+                    .name(tagName)
+                    .build());
         }
+        // 태그가 있을 때
+        else {
+            tag = getTag.get();
+        }
+
+        UserTagDAO userTag = UserTagDAO.builder()
+                .name(tag.getName())
+                .userDAO(userDAORepository.findById(userId).get())
+                .tagDAO(tag)
+                .build();
+
+        userTagDAORepository.save(userTag);
     }
 }

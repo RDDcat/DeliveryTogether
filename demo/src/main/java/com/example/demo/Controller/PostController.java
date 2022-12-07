@@ -8,6 +8,7 @@ import com.example.demo.Model.DTO.UserInfoDTO;
 import com.example.demo.Service.AService;
 import com.example.demo.Service.PostService;
 import com.example.demo.Service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,11 +50,19 @@ public class PostController {
     public UserInfoDTO GetUserInfo(@PathVariable Long userId){
         return service.GetUserInfo(userId);
     }
-    
+
     // 개인 정보 구독 수정
     @GetMapping("/user/sub/delete/{tagId}")
     public void deleteSub(@PathVariable Long tagId){
         userService.deleteTag(tagId);
     }
+
+    @PostMapping("/user/sub/add/")
+    public void addSub(@RequestParam(value = "userId", required = true) Long userId,
+                       @RequestParam(value = "tagName", required = true) String tagName){
+        userService.addTag(userId,tagName);
+    }
+
+
 
 }
