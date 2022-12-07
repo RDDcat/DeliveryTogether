@@ -114,7 +114,7 @@ public class InitDB {
 
 
             PostDAO post1 = PostDAO.builder()
-                    .title("삽겹살")
+                    .title("삽겹살-새마을식당")
                     .describe("삽겹살 같이 먹어요")
                     .storeUrl("http://testurl1")
                     .limitMinute("30")
@@ -126,7 +126,7 @@ public class InitDB {
                     .build();
 
             PostDAO post2 = PostDAO.builder()
-                    .title("스테이크")
+                    .title("스테이크-아웃백")
                     .describe("스테이크 먹고 싶어요")
                     .storeUrl("http://testurl2")
                     .limitMinute("30")
@@ -138,7 +138,7 @@ public class InitDB {
                     .build();
 
             PostDAO post3 = PostDAO.builder()
-                    .title("치킨집")
+                    .title("치킨집-푸라닭")
                     .describe("치맥 ㄱㄱ?")
                     .storeUrl("http://testurl3")
                     .limitMinute("15")
@@ -150,7 +150,7 @@ public class InitDB {
                     .build();
 
             PostDAO post4 = PostDAO.builder()
-                    .title("일식")
+                    .title("일식-이치란")
                     .describe("추운데 라멘 먹을래요?")
                     .storeUrl("http://testurl4")
                     .limitMinute("15")
