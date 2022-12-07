@@ -1,6 +1,7 @@
 package com.example.demo.Model.DAO;
 
 import com.example.demo.Model.DTO.UserDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,7 +13,6 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@ToString
 public class UserDAO {
 
     @Id
@@ -29,10 +29,11 @@ public class UserDAO {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "userDAO")
     List<UserTagDAO> userTagDAOS = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "userDAO")
     List<PostDAO> postDAOS = new ArrayList<>();
 

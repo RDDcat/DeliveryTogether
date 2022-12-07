@@ -15,11 +15,6 @@ public class AController {
     @Autowired
     AService service;
 
-    // 홈 화면
-    @GetMapping("/{token}")
-    public MainPageDTO GetMainPage(@PathVariable String token){
-        return service.GetMainPage(token);
-    }
 
 
 }

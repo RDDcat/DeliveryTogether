@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Table(name = "tag")
 @Getter
 @NoArgsConstructor
-@ToString
 public class TagDAO {
 
     @Id

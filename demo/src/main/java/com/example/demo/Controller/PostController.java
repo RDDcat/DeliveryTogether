@@ -3,16 +3,14 @@ package com.example.demo.Controller;
 import com.example.demo.Bean.Small.DeleteTagsBean;
 import com.example.demo.Model.DAO.PostDAO;
 import com.example.demo.Model.DTO.MainPageDTO;
-import com.example.demo.Model.DTO.PostDTO;
 import com.example.demo.Model.DTO.UserInfoDTO;
-import com.example.demo.Service.AService;
 import com.example.demo.Service.PostService;
 import com.example.demo.Service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import static com.example.demo.Model.DAO.QPostDAO.postDAO;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
@@ -32,7 +30,7 @@ public class PostController {
 
     // 게시글 선택시
     @GetMapping("/post/{postId}")
-    public PostDTO GetPost(@PathVariable long postId){
+    public Optional<PostDAO> GetPost(@PathVariable long postId){
         return service.GetPost(postId);
     }
 

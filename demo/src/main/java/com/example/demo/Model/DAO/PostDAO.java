@@ -1,6 +1,7 @@
 package com.example.demo.Model.DAO;
 
 import com.example.demo.Model.DTO.PostDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -15,7 +16,6 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@ToString
 public class PostDAO {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,10 +39,12 @@ public class PostDAO {
     private LocalDateTime updatedAt;
 
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserDAO userDAO;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "postDAO")
     List<PostTagDAO> postTagDAOS = new ArrayList<>();
 
