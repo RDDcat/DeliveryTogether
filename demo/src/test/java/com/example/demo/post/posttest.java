@@ -55,11 +55,12 @@ public class posttest {
 
         UserDAO user1 = UserDAO.builder()
                 .name("test")
-                .email("test@naver.com")
                 .token("sdakjfaks;djf")
                 .refreshToken("dksajflasfd")
                 .role(Role.USER)
                 .build();
+
+//        user1.setUserId(1000L);
 
         userDAORepository.save(user1);
 
@@ -120,10 +121,10 @@ public class posttest {
 
     @Test
     public void 사용자구독태그가져오기() throws Exception{
-        List<UserTagDTO> test =
+        List<String> test =
                 userDAORepository.findAllUserTags(userDAORepository.findByName("test").get().getUserId());
 
-        for (UserTagDTO s : test) {
+        for (String s : test) {
             System.out.println("UserTag = " + s);
         }
     }

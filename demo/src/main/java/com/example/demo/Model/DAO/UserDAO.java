@@ -11,11 +11,12 @@ import java.util.List;
 @Table(name = "user")
 @Getter
 @Setter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
 public class UserDAO {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private Long userId;
     private String name;
@@ -35,8 +36,7 @@ public class UserDAO {
     List<PostDAO> postDAOS = new ArrayList<>();
 
     @Builder
-    public UserDAO(Long id, String name, String token, String refreshToken, Role role) {
-        this.userId = id;
+    public UserDAO(String name, String token, String refreshToken, Role role) {
         this.name = name;
         this.token = token;
         this.refreshToken = refreshToken;
