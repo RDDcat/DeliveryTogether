@@ -146,7 +146,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(user1)
-                    .picture("/static/img/food02.fab138ac.jpg")
+                    .picture("/static/img/food_3.jpg")
                     .build();
 
             PostDAO post2 = PostDAO.builder()
@@ -158,7 +158,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(user1)
-                    .picture("/static/img/food05.dc9a71f9.jpg")
+                    .picture("/static/img/food_6.jpg")
                     .build();
 
             PostDAO post3 = PostDAO.builder()
@@ -170,7 +170,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(user2)
-                    .picture("/static/img/food18.9140d572.jpg")
+                    .picture("/static/img/food_19.jpg")
                     .build();
 
             PostDAO post4 = PostDAO.builder()
@@ -182,7 +182,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(user2)
-                    .picture("/static/img/food07.8abcd559.jpg")
+                    .picture("/static/img/food_8.jpg")
                     .build();
 
 
@@ -195,7 +195,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(maro)
-                    .picture("/static/img/food00.c04141eb.jpg")
+                    .picture("/static/img/food_1.jpg")
                     .build();
 
             PostDAO post6 = PostDAO.builder()
@@ -207,7 +207,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(user2)
-                    .picture("/static/img/food13.4c2e5541.jpg")
+                    .picture("/static/img/food_14.jpg")
                     .build();
 
             PostDAO post7 = PostDAO.builder()
@@ -219,7 +219,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(maro)
-                    .picture("/static/img/food14.db3f2187.jpg")
+                    .picture("/static/img/food_15.jpg")
                     .build();
 
             PostDAO post8 = PostDAO.builder()
@@ -231,7 +231,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(user1)
-                    .picture("/static/img/food17.e157c069.jpg")
+                    .picture("/static/img/food_18.jpg")
                     .build();
 
             PostDAO post9 = PostDAO.builder()
@@ -243,7 +243,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(user2)
-                    .picture("/static/img/food01.a7fa4143.jpg")
+                    .picture("/static/img/food_2.jpg")
                     .build();
 
             PostDAO post10 = PostDAO.builder()
@@ -255,7 +255,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(user1)
-                    .picture("/static/img/food12.3e0516c4.jpg")
+                    .picture("/static/img/food_13.jpg")
                     .build();
 
             PostDAO post11 = PostDAO.builder()
@@ -267,7 +267,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(user2)
-                    .picture("/static/img/food20.9bf13585.jpg")
+                    .picture("/static/img/food_21.jpg")
                     .build();
 
             PostDAO post12 = PostDAO.builder()
@@ -279,7 +279,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(user1)
-                    .picture("/static/img/food11.71fb03cc.jpg")
+                    .picture("/static/img/food_12.jpg")
                     .build();
 
             PostDAO post13 = PostDAO.builder()
@@ -291,7 +291,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(user1)
-                    .picture("/static/img/food20.9bf13585.jpg")
+                    .picture("/static/img/food_21.jpg")
                     .build();
 
             PostDAO post14 = PostDAO.builder()
@@ -303,7 +303,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(maro)
-                    .picture("/static/img/food20.9bf13585.jpg")
+                    .picture("/static/img/food_21.jpg")
                     .build();
 
             PostDAO post15 = PostDAO.builder()
@@ -315,7 +315,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(maro)
-                    .picture("/static/img/food20.9bf13585.jpg")
+                    .picture("/static/img/food_21.jpg")
                     .build();
 
             PostDAO post16 = PostDAO.builder()
@@ -327,7 +327,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(maro)
-                    .picture("/static/img/food20.9bf13585.jpg")
+                    .picture("/static/img/food_21.jpg")
                     .build();
 
             PostDAO post17 = PostDAO.builder()
@@ -339,7 +339,7 @@ public class InitDB {
                     .updatedAt(LocalDateTime.now())
                     .countNum(1)
                     .userDAO(maro)
-                    .picture("/static/img/food20.9bf13585.jpg")
+                    .picture("/static/img/food_21.jpg")
                     .build();
 
 
