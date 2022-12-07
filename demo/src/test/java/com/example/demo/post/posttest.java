@@ -55,7 +55,6 @@ public class posttest {
 
         UserDAO user1 = UserDAO.builder()
                 .name("test")
-                .openId(1234151516)
                 .token("sdakjfaks;djf")
                 .refreshToken("dksajflasfd")
                 .role(Role.USER)

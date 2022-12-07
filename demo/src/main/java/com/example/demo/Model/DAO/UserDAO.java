@@ -20,7 +20,6 @@ public class UserDAO {
     @Column(name = "user_id")
     private Long userId;
 
-    private long openId;
     private String name;
 
     private String token;
