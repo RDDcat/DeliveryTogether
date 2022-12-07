@@ -7,9 +7,11 @@ import com.example.demo.Bean.Small.GetUserIdBean;
 import com.example.demo.Model.DAO.UserDAO;
 import com.example.demo.Model.DTO.MainPageDTO;
 import com.example.demo.Model.DTO.MetaPostDTO;
+import com.example.demo.Model.DTO.UserTagDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,7 +42,12 @@ public class GetMainBean {
 
 
         // 사용자 아이디로 사용자가 구독한 태그 이름 가져오기
-        List<String> tagNames = getTagsBean.exec(userId);
+        List<UserTagDTO> tags = getTagsBean.exec(userId);
+        List<String> tagNames = new ArrayList<>();
+        for (UserTagDTO tag : tags) {
+            tagNames.add(tag.getTagName());
+        }
+
         System.out.println("토큰 중간 확인 : " + token);
 
 

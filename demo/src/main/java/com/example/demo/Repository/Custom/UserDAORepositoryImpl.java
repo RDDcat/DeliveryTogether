@@ -1,5 +1,7 @@
 package com.example.demo.Repository.Custom;
 
+import com.example.demo.Model.DTO.QUserTagDTO;
+import com.example.demo.Model.DTO.UserTagDTO;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 
@@ -13,10 +15,13 @@ public class UserDAORepositoryImpl implements UserDAORepositoryCustom {
     private final JPAQueryFactory queryFactory;
 
     @Override
-    public List<String> findAllUserTags(Long userId) {
-        List<String> results = queryFactory
+    public List<UserTagDTO> findAllUserTags(Long userId) {
+        List<UserTagDTO> results = queryFactory
                 .select(
-                        userTagDAO.name
+                        new QUserTagDTO(
+                                userTagDAO.userTagId,
+                                userTagDAO.name
+                        )
                 )
                 .from(userTagDAO)
                 .where(userTagDAO.userDAO.userId.eq(userId))
