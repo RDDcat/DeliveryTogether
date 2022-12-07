@@ -1,11 +1,13 @@
 package com.example.demo.Controller;
 
+import com.example.demo.Bean.Small.DeleteTagsBean;
 import com.example.demo.Model.DAO.PostDAO;
 import com.example.demo.Model.DTO.MainPageDTO;
 import com.example.demo.Model.DTO.PostDTO;
 import com.example.demo.Model.DTO.UserInfoDTO;
 import com.example.demo.Service.AService;
 import com.example.demo.Service.PostService;
+import com.example.demo.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +19,9 @@ import static com.example.demo.Model.DAO.QPostDAO.postDAO;
 public class PostController {
     @Autowired
     PostService service;
+
+    @Autowired
+    UserService userService;
 
     // 홈 화면
     @GetMapping("/{token}")
@@ -46,9 +51,9 @@ public class PostController {
     }
     
     // 개인 정보 구독 수정
-    @GetMapping("/user/sub/{tagName}")
-    public UserInfoDTO changeSub(@PathVariable String tagName){
-        return null;
+    @GetMapping("/user/sub/delete/{tagId}")
+    public void deleteSub(@PathVariable Long tagId){
+        userService.deleteTag(tagId);
     }
 
 }
