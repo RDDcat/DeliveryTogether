@@ -41,6 +41,7 @@ public class AuthController {
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl(baseUrl);
 
+        System.out.println("카카오 페이지 요청");
         log.info(redirectView.getUrl());
 
         return redirectView;
