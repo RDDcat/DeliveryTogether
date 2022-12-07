@@ -11,7 +11,7 @@ import java.util.List;
 @Table(name = "user")
 @Getter
 @Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @ToString
 public class UserDAO {
 
