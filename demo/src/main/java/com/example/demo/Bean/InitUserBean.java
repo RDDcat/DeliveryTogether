@@ -31,15 +31,13 @@ public class InitUserBean {
         // 존재 하는지 찾고
         Optional<UserDAO> findUser = findUserBean.exec(userDAO);
 
-        if(findUser == null){
+        if(!findUser.isPresent()){
             // 저장
             saveUserBean.exec(userDAO);
         }
         else {
             // 존재 하면 update
-            UserDAO userDAO1 = findUser.get();
-            userDAO1.setToken(userDAO.getToken());
-            userDAO1.setRefreshToken(userDAO.getRefreshToken());
+            updateUserBean.exec(findUser, userDAO);
 
         }
 

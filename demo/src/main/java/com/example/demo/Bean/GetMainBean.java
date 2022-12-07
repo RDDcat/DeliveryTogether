@@ -31,11 +31,11 @@ public class GetMainBean {
         Optional<UserDAO> userDAO = getUserIdBean.exec(token);
         System.out.println("토큰 중간 확인 2: " + token);
 
-        long userId = 1;
+        long userId = 5;
 
         //
         if(userDAO.isPresent()){
-            userDAO.get().getUserId();
+            userId = userDAO.get().getUserId();
         }
 
 
@@ -45,7 +45,6 @@ public class GetMainBean {
 
 
         // 태그 이름으로 저장소에서 PostDAO 가져오기
-        // TODO 함수 리턴 형식 변경으로 인한 변경 필요할거 같음
         List<MetaPostDTO> metaPostDTOS = getPostDAOsBean.exec(tagNames);
 
         // DAO -> DTO 변환 후 리턴
