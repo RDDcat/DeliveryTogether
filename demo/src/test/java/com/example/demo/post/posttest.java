@@ -55,6 +55,7 @@ public class posttest {
 
         UserDAO user1 = UserDAO.builder()
                 .name("test")
+                .openId(1234151516)
                 .token("sdakjfaks;djf")
                 .refreshToken("dksajflasfd")
                 .role(Role.USER)
@@ -87,7 +88,9 @@ public class posttest {
                 .limitMinute("30")
                 .createdAt(LocalDateTime.now())
                 .updatedAt(LocalDateTime.now())
-                .count(1)
+                .countNum(1)
+                .userDAO(user1)
+                .picture("/static/img/food/food_3.jpg")
                 .build();
 
         postDAORepository.save(post1);
