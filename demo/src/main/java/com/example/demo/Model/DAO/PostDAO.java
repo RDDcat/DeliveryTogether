@@ -22,7 +22,7 @@ public class PostDAO {
     @Column(name = "post_id")
     private Long postId;
     private String title;
-    private String describe;
+    private String postDescribe;
 
     private String picture;
     private String storeUrl;
@@ -58,7 +58,7 @@ public class PostDAO {
     @Builder
     public PostDAO(String title, String describe, String storeUrl, String limitMinute, int count, LocalDateTime createdAt, LocalDateTime updatedAt, UserDAO userDAO) {
         this.title = title;
-        this.describe = describe;
+        this.postDescribe = describe;
         this.storeUrl = storeUrl;
         this.limitMinute = limitMinute;
         this.countNum = count;
@@ -74,7 +74,7 @@ public class PostDAO {
         postDTO.setTitle(title);
         postDTO.setLimitMinute(limitMinute);
         postDTO.setStoreUrl(storeUrl);
-        postDTO.setDescribe(describe);
+        postDTO.setDescribe(postDescribe);
         postDTO.setCurrentAt(createdAt);
         postDTO.setCount(countNum);
         return postDTO;
