@@ -1,6 +1,5 @@
 package com.example.demo.Bean.Small;
 
-import com.example.demo.Repository.Custom.UserDAORepositoryCustom;
 import com.example.demo.Repository.Custom.UserDAORepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
