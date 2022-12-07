@@ -2,8 +2,12 @@ package com.example.demo.Model.DTO;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class MainPageDTO {
-    MetaPostDTO[] metaPostDTOS;
+    long userId;
+    String access_token;
+    List<MetaPostDTO> metaPostDTOS;
 
 }
