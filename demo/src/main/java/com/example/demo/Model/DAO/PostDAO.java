@@ -47,6 +47,14 @@ public class PostDAO {
     @OneToMany(mappedBy = "postDAO")
     List<PostTagDAO> postTagDAOS = new ArrayList<>();
 
+    public boolean addCount(){
+        if (this.count <= 3){
+            this.count += 1;
+            return true;
+        }
+
+        return false;
+    }
 
     @Builder
     public PostDAO(String title, String describe, String storeUrl, String limitMinute, int count, LocalDateTime createdAt, LocalDateTime updatedAt, UserDAO userDAO) {
