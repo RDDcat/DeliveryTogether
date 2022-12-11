@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.Bean.KakaoAuthBean;
 import com.example.demo.Model.api.KakaoUserDTO;
 import com.example.demo.Model.OAuthToken;
 import com.example.demo.Service.UserService;
@@ -30,7 +31,7 @@ import java.util.logging.Logger;
 @CrossOrigin("*")
 public class AuthController {
     @Autowired
-    UserService userService;
+    KakaoAuthBean kakaoAuthBean;
 
     @GetMapping("/")
     public RedirectView GetMainPage() throws URISyntaxException {
@@ -51,77 +52,8 @@ public class AuthController {
 
     @GetMapping("/kakao/callback")
     public RedirectView KakaoCallback(String code){
-        // Post로 데이터 요청
-        RestTemplate rt = new RestTemplate();
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
-
-        MultiValueMap<String, String> param = new LinkedMultiValueMap<>();
-        param.add("grant_type", "authorization_code");
-        param.add("client_id", "71e0a176033c8ff1373036d34e7a32ac");
-        param.add("redirect_uri", "http://localhost:8080/auth/kakao/callback");
-        param.add("code", code);
-
-        HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest = new HttpEntity<>(param, headers);
-
-        ResponseEntity<String> response = rt.exchange(
-                "https://kauth.kakao.com/oauth/token",
-                HttpMethod.POST,
-                kakaoTokenRequest,
-                String.class
-        );
-
-        log.info("response", response.toString());
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        OAuthToken oauthToken =null;
-        try {
-            oauthToken = objectMapper.readValue(response.getBody(), OAuthToken.class);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-
-        // Post로 데이터 요청
-        RestTemplate rt2 = new RestTemplate();
-
-        HttpHeaders headers2 = new HttpHeaders();
-        headers2.add("Authorization", "Bearer " + oauthToken.getAccess_token());
-        headers2.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
-
-        HttpEntity<MultiValueMap<String, String>> kakaoProfileRequest = new HttpEntity<>(headers2);
-
-        ResponseEntity<String> response2 = rt2.exchange(
-                "https://kapi.kakao.com/v2/user/me",
-                HttpMethod.POST,
-                kakaoProfileRequest,
-                String.class
-        );
-
-        log.info("여기야 여기 : ", response2.toString());
-
-        KakaoUserDTO kakaoUserDTO =null;
-        try {
-            kakaoUserDTO = objectMapper.readValue(response2.getBody(), KakaoUserDTO.class);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-
-        System.out.println(kakaoUserDTO);
-        log.info("저장 실행 : ", kakaoUserDTO.toString());
-
-        // 회원 정보 디비에 저장
-        userService.InitUser(kakaoUserDTO, oauthToken);
-        System.out.println("저장 실행");
-
-        // 로그인 후 메인페이지에 필요한 JSON 바로 보내야함
-        // post로 리다이랙트
-        final String baseUrl = "http://localhost:8080/#/post/"+oauthToken.getAccess_token()+"/amu";
-
-        RedirectView redirectView = new RedirectView();
-        redirectView.setUrl(baseUrl);
-
-        return redirectView;
+        return kakaoAuthBean.exec();
     }
 
     @GetMapping("/kakao/profile")
