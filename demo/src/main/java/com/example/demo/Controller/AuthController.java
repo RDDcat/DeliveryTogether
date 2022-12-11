@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Bean.KakaoAuthBean;
+import com.example.demo.Bean.KakaoLoginBean;
 import com.example.demo.Model.api.KakaoUserDTO;
 import com.example.demo.Model.OAuthToken;
 import com.example.demo.Service.UserService;
@@ -32,22 +33,12 @@ import java.util.logging.Logger;
 public class AuthController {
     @Autowired
     KakaoAuthBean kakaoAuthBean;
+    @Autowired
+    KakaoLoginBean kakaoLoginBean;
 
     @GetMapping("/")
     public RedirectView GetMainPage() throws URISyntaxException {
-        String client_id = "71e0a176033c8ff1373036d34e7a32ac";
-        String redirect_uri = "http://localhost:8080/auth/kakao/callback&response_type=code";
-        final String baseUrl = "https://kauth.kakao.com/oauth/authorize?"
-                +"client_id="+client_id
-                +"&redirect_uri="+redirect_uri;
-
-        RedirectView redirectView = new RedirectView();
-        redirectView.setUrl(baseUrl);
-
-        System.out.println("카카오 페이지 요청");
-        log.info(redirectView.getUrl());
-
-        return redirectView;
+        return kakaoLoginBean.exec();
     }
 
     @GetMapping("/kakao/callback")
