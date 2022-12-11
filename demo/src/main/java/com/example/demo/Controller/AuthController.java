@@ -53,7 +53,7 @@ public class AuthController {
     @GetMapping("/kakao/callback")
     public RedirectView KakaoCallback(String code){
 
-        return kakaoAuthBean.exec();
+        return kakaoAuthBean.exec(code);
     }
 
     @GetMapping("/kakao/profile")
