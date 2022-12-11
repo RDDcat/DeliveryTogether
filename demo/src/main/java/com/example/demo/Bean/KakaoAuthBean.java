@@ -3,6 +3,7 @@ package com.example.demo.Bean;
 import com.example.demo.Bean.Small.GetKakaoProfileBean;
 import com.example.demo.Bean.Small.GetKakaoTokenBean;
 import com.example.demo.Model.OAuthToken;
+import com.example.demo.Model.api.KakaoUserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.RedirectView;
@@ -21,7 +22,7 @@ public class KakaoAuthBean {
         OAuthToken oauthToken = getAccess_token.exec(code);
         
         // 토큰으로 프로필 정보 가져오기
-        getKakaoProfileBean.exec(oauthToken);
+        KakaoUserDTO kakaoUserDTO = getKakaoProfileBean.exec(oauthToken);
 
 
         // 회원 정보 디비에 저장
