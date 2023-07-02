@@ -11,14 +11,14 @@
 
 <br>
 
-+ 지금 보고계시는 프로젝트는 백엔드 프로젝트입니다.
+\+ 지금 보고계시는 프로젝트는 백엔드 프로젝트입니다.
 
 <a href="https://github.com/nulzi/DeliveryTogether">프론트엔드 프로젝트 확인하기</a>
 
 
 ## 창업동아리 발표 자료 (ppt)
 해당 프로젝트는 "시켜요 같이"라는 이름으로 교내 창업동아리에 참가한 프로젝트입니다. 
-![시켜요 같이(Delivery Together) 발표자료](https://docs.google.com/presentation/d/11OoRDgAtzIqtacS5X96X_J99sTUDrZprmCIyf7hv0gY/edit?usp=sharing)
+<a href="https://docs.google.com/presentation/d/11OoRDgAtzIqtacS5X96X_J99sTUDrZprmCIyf7hv0gY/edit?usp=sharing">시켜요 같이(Delivery Together) 발표자료</a>
 
 ## 기술 스택
 ### 프론트
