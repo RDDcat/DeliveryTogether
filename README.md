@@ -21,7 +21,7 @@
 
 ### 백엔드
 ![Java](https://img.shields.io/badge/Java-007396?style=flat&logo=Java&logoColor=white)
-![Spring Boot Badge](https://img.shields.io/badge/Spring Boot-6DB33F?style=flat&logo=spring-boot&logoColor=white)
+![Spring Boot Badge](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat&logo=spring-boot&logoColor=white)
 ![MariaDB Badge](https://img.shields.io/badge/MariaDB-003545?logo=mariadb&logoColor=fff&style=flat)
 
 
