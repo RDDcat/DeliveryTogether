@@ -20,8 +20,8 @@
 ![JavaScript Badge](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000&style=flat)
 
 ### 백엔드
-<img src="https://img.shields.io/badge/Java-007396?style=flat&logo=Java&logoColor=white"> 
-<img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat&logo=spring-boot&logoColor=white">
+![Java](https://img.shields.io/badge/Java-007396?style=flat&logo=Java&logoColor=white)
+![Spring Boot Badge](https://img.shields.io/badge/Spring Boot-6DB33F?style=flat&logo=spring-boot&logoColor=white)
 ![MariaDB Badge](https://img.shields.io/badge/MariaDB-003545?logo=mariadb&logoColor=fff&style=flat)
 
 
