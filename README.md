@@ -9,9 +9,20 @@
 
 배달수령위치는 작게는 제1기숙사, 제2기숙사, 아파트 XXX동등으로 건물 기준으로 생각했습니다.
 
+<br>
+
+지금 보고계시는 프로젝트는 백엔드 프로젝트입니다.
+
 
 ## 기술 스택
+### 프론트
+![Vue.js Badge](https://img.shields.io/badge/Vue.js-4FC08D?logo=vuedotjs&logoColor=fff&style=flat)
+![JavaScript Badge](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000&style=flat)
 
+### 백엔드
+<img src="https://img.shields.io/badge/Java-007396?style=flat&logo=Java&logoColor=white"> 
+<img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat&logo=spring-boot&logoColor=white">
+![MariaDB Badge](https://img.shields.io/badge/MariaDB-003545?logo=mariadb&logoColor=fff&style=flat)
 
 
 ## 구현 내용
