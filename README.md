@@ -13,6 +13,8 @@
 
 지금 보고계시는 프로젝트는 백엔드 프로젝트입니다.
 
+![프론트엔드 프로젝트](https://github.com/nulzi/DeliveryTogether)
+
 
 ## 기술 스택
 ### 프론트
@@ -26,6 +28,21 @@
 
 
 ## 구현 내용
+| 화면 | 설명 |
+| ------ | ----- |
+| ![스플래시 화면](https://github.com/RDDcat/DeliveryTogether/assets/55569476/97afdf05-48d0-40da-bcda-9110797d855e) | 스플래시 화면 |
+| ![메인화면](https://github.com/RDDcat/DeliveryTogether/assets/55569476/0fb00f08-a87e-4930-ab6a-ccf740998f2d) | 메인화면 |
+| ![메인화면2](https://github.com/RDDcat/DeliveryTogether/assets/55569476/4433fde9-286c-4dc9-b157-642f597fac01) | 메인화면(광고 추가버전) |
+| ![게시글 화면](https://github.com/RDDcat/DeliveryTogether/assets/55569476/6966f4db-2e5f-4329-8485-610910352856) | 게시글 화면 |
+| ![게시글 작성 화면](https://github.com/RDDcat/DeliveryTogether/assets/55569476/b6ade545-dd29-4823-8b4a-ce05354906dd) | 게시글 작성화면 |
+| ![대표이미지 설정 화면](https://github.com/RDDcat/DeliveryTogether/assets/55569476/2058e9ea-115d-40e9-9ed9-30ac0636071f) | 게시글 대표이미지 설정 화면 |
+| ![프로필 화면](https://github.com/RDDcat/DeliveryTogether/assets/55569476/73514145-d78e-4505-8de1-00622cc60f1c) | 프로필화면 |
+
+
+
+
+
+
 
 
 
